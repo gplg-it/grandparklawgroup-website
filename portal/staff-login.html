@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Sign In | Grand Park Law Group</title>
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #1a1915;
+            --primary-charcoal: #2d2a24;
+            --primary-warm: #3d3830;
+            --primary-light: #4a453c;
+            
+            --accent-gold: #c9a962;
+            --accent-gold-light: #d4bc7d;
+            --accent-gold-dark: #a68b4b;
+            --accent-gold-glow: rgba(201, 169, 98, 0.15);
+            
+            --cream: #f5f2eb;
+            --cream-dark: #e8e4db;
+            --off-white: #faf9f6;
+            --text-light: rgba(250, 249, 246, 0.9);
+            --text-muted: rgba(250, 249, 246, 0.55);
+            --text-dark: #1a1915;
+            
+            --error-bg: #7f1d1d;
+            --error-border: #dc2626;
+            --error-text: #fecaca;
+            
+            --success-bg: #065f46;
+            --success-border: #059669;
+            --success-text: #d1fae5;
+            
+            --info-bg: #1e3a5f;
+            --info-border: #3b82f6;
+            --info-text: #bfdbfe;
+            
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Outfit', -apple-system, sans-serif;
+            
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            background: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        /* Background */
+        .page-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .page-wrapper::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(90deg, var(--accent-gold) 1px, transparent 1px),
+                linear-gradient(var(--accent-gold) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.02;
+            pointer-events: none;
+        }
+
+        .page-wrapper::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 50% 30%, rgba(201, 169, 98, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 10;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        .header-link {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .header-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Auth Container */
+        .auth-container {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .auth-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-warm), var(--primary-charcoal));
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+        }
+
+        .auth-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .auth-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--off-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Auth Card */
+        .auth-card {
+            background: var(--primary-charcoal);
+            border: 1px solid rgba(201, 169, 98, 0.1);
+            border-radius: 8px;
+            padding: 2.5rem;
+        }
+
+        /* Tabs */
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 1rem;
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            cursor: pointer;
+            position: relative;
+            transition: color var(--transition-fast);
+        }
+
+        .auth-tab:hover {
+            color: var(--text-light);
+        }
+
+        .auth-tab.active {
+            color: var(--accent-gold);
+        }
+
+        .auth-tab::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transform: scaleX(0);
+            transition: transform var(--transition-fast);
+        }
+
+        .auth-tab.active::after {
+            transform: scaleX(1);
+        }
+
+        /* Forms */
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--primary-warm);
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--text-light);
+            transition: all var(--transition-fast);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.1);
+        }
+
+        .form-input:hover:not(:focus) {
+            border-color: rgba(201, 169, 98, 0.25);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--primary-warm);
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--text-light);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23c9a962' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            transition: all var(--transition-fast);
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Password Toggle */
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0.25rem;
+            transition: color var(--transition-fast);
+        }
+
+        .password-toggle:hover {
+            color: var(--accent-gold);
+        }
+
+        .password-toggle svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Checkbox */
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-checkbox input {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: var(--accent-gold);
+            cursor: pointer;
+        }
+
+        .form-checkbox label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .form-checkbox label a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        .form-checkbox label a:hover {
+            text-decoration: underline;
+        }
+
+        /* Forgot Password */
+        .forgot-password {
+            text-align: right;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .forgot-password a {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .forgot-password a:hover {
+            color: var(--accent-gold-light);
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--accent-gold);
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-submit:hover {
+            background: var(--accent-gold-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(201, 169, 98, 0.3);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Divider */
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(201, 169, 98, 0.1);
+        }
+
+        .auth-divider span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* SSO Button */
+        .btn-sso {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            background: transparent;
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-light);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all var(--transition-fast);
+            margin-bottom: 0.75rem;
+        }
+
+        .btn-sso:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn-sso:hover {
+            border-color: rgba(201, 169, 98, 0.4);
+            background: rgba(201, 169, 98, 0.05);
+        }
+
+        .btn-sso svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Alert Messages */
+        .alert {
+            padding: 1rem 1.25rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-error {
+            background: var(--error-bg);
+            border: 1px solid var(--error-border);
+            color: var(--error-text);
+        }
+
+        .alert-success {
+            background: var(--success-bg);
+            border: 1px solid var(--success-border);
+            color: var(--success-text);
+        }
+
+        .alert-info {
+            background: var(--info-bg);
+            border: 1px solid var(--info-border);
+            color: var(--info-text);
+        }
+
+        /* Info Box */
+        .info-box {
+            background: var(--primary-warm);
+            border: 1px solid rgba(201, 169, 98, 0.1);
+            border-radius: 4px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .info-box-icon {
+            color: var(--accent-gold);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .info-box-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .info-box-content {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer-text a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-text a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Loading State */
+        .btn-submit.loading {
+            position: relative;
+            color: transparent;
+        }
+
+        .btn-submit.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 2px solid var(--primary-dark);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .auth-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <a href="/" class="logo">Grand Park <span>Law Group</span></a>
+            <a href="/portal/" class="header-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"></path>
+                </svg>
+                Back to Portal Selection
+            </a>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <div class="auth-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h1 class="auth-title">Staff Portal</h1>
+                    <p class="auth-subtitle">Access internal applications and firm resources</p>
+                </div>
+
+                <div class="auth-card">
+                    <!-- Tabs -->
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="signin">Sign In</button>
+                        <button class="auth-tab" data-tab="signup">Request Access</button>
+                    </div>
+
+                    <!-- Alert Messages -->
+                    <div class="alert alert-error" id="error-alert"></div>
+                    <div class="alert alert-success" id="success-alert"></div>
+
+                    <!-- Sign In Form -->
+                    <form class="auth-form active" id="signin-form" data-form="signin">
+                        <div class="form-group">
+                            <label class="form-label" for="signin-email">Work Email</label>
+                            <input type="email" class="form-input" id="signin-email" name="email" placeholder="you@grandparklawgroup.com" required autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="signin-password">Password</label>
+                            <div class="password-wrapper">
+                                <input type="password" class="form-input" id="signin-password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+                                <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                    <svg class="icon-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    <svg class="icon-hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:none">
+                                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="forgot-password">
+                            <a href="/portal/forgot-password.html">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Sign In</button>
+
+                        <div class="auth-divider">
+                            <span>or sign in with</span>
+                        </div>
+
+                        <button type="button" class="btn-sso" id="google-sso">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                            </svg>
+                            Google Workspace
+                        </button>
+
+                        <button type="button" class="btn-sso" id="microsoft-sso">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="#F25022" d="M1 1h10v10H1z"/>
+                                <path fill="#00A4EF" d="M1 13h10v10H1z"/>
+                                <path fill="#7FBA00" d="M13 1h10v10H13z"/>
+                                <path fill="#FFB900" d="M13 13h10v10H13z"/>
+                            </svg>
+                            Microsoft 365
+                        </button>
+                    </form>
+
+                    <!-- Request Access Form -->
+                    <form class="auth-form" id="signup-form" data-form="signup">
+                        <div class="info-box">
+                            <div class="info-box-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                </svg>
+                            </div>
+                            <div class="info-box-content">
+                                Access requests require administrator approval. Please use your firm email address and ensure your supervisor has authorized this request.
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="signup-firstname">First Name</label>
+                                <input type="text" class="form-input" id="signup-firstname" name="firstname" placeholder="First name" required autocomplete="given-name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="signup-lastname">Last Name</label>
+                                <input type="text" class="form-input" id="signup-lastname" name="lastname" placeholder="Last name" required autocomplete="family-name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="signup-email">Work Email</label>
+                            <input type="email" class="form-input" id="signup-email" name="email" placeholder="you@grandparklawgroup.com" required autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="signup-role">Role / Position</label>
+                            <select class="form-select" id="signup-role" name="role" required>
+                                <option value="" disabled selected>Select your role</option>
+                                <option value="attorney">Attorney</option>
+                                <option value="paralegal">Paralegal</option>
+                                <option value="legal-assistant">Legal Assistant</option>
+                                <option value="office-admin">Office Administrator</option>
+                                <option value="accounting">Accounting / Billing</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="it">IT / Technology</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="signup-office">Office Location</label>
+                            <select class="form-select" id="signup-office" name="office" required>
+                                <option value="" disabled selected>Select office</option>
+                                <option value="los-angeles">Los Angeles</option>
+                                <option value="chicago">Chicago</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="signup-supervisor">Supervisor Name</label>
+                            <input type="text" class="form-input" id="signup-supervisor" name="supervisor" placeholder="Who should approve this request?">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="signup-password">Create Password</label>
+                            <div class="password-wrapper">
+                                <input type="password" class="form-input" id="signup-password" name="password" placeholder="Minimum 10 characters" required minlength="10" autocomplete="new-password">
+                                <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                    <svg class="icon-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    <svg class="icon-hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:none">
+                                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="form-hint">Must include uppercase, lowercase, number, and special character</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="signup-confirm">Confirm Password</label>
+                            <div class="password-wrapper">
+                                <input type="password" class="form-input" id="signup-confirm" name="confirm" placeholder="Re-enter your password" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="signup-terms" name="terms" required>
+                            <label for="signup-terms">
+                                I acknowledge that this account is for authorized firm business only and agree to the <a href="/acceptable-use" target="_blank">Acceptable Use Policy</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">
+                © 2025 Grand Park Law Group, A.P.C. · 
+                <a href="/contact">IT Support: support@grandparklawgroup.com</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.auth-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetForm = tab.dataset.tab;
+                
+                // Update tabs
+                document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update forms
+                document.querySelectorAll('.auth-form').forEach(form => {
+                    form.classList.toggle('active', form.dataset.form === targetForm);
+                });
+                
+                // Clear alerts
+                hideAlerts();
+            });
+        });
+
+        // Password visibility toggle
+        document.querySelectorAll('.password-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const wrapper = toggle.closest('.password-wrapper');
+                const input = wrapper.querySelector('input');
+                const showIcon = toggle.querySelector('.icon-show');
+                const hideIcon = toggle.querySelector('.icon-hide');
+                
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    showIcon.style.display = 'none';
+                    hideIcon.style.display = 'block';
+                } else {
+                    input.type = 'password';
+                    showIcon.style.display = 'block';
+                    hideIcon.style.display = 'none';
+                }
+            });
+        });
+
+        // Form submissions
+        document.getElementById('signin-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('.btn-submit');
+            btn.classList.add('loading');
+            btn.disabled = true;
+            hideAlerts();
+            
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Demo: Show error or redirect
+            showError('Invalid credentials. Please try again or use SSO.');
+            btn.classList.remove('loading');
+            btn.disabled = false;
+        });
+
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('.btn-submit');
+            const password = document.getElementById('signup-password').value;
+            const confirm = document.getElementById('signup-confirm').value;
+            
+            hideAlerts();
+            
+            if (password !== confirm) {
+                showError('Passwords do not match.');
+                return;
+            }
+            
+            // Password strength validation
+            const hasUpper = /[A-Z]/.test(password);
+            const hasLower = /[a-z]/.test(password);
+            const hasNumber = /[0-9]/.test(password);
+            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+            
+            if (!hasUpper || !hasLower || !hasNumber || !hasSpecial) {
+                showError('Password must include uppercase, lowercase, number, and special character.');
+                return;
+            }
+            
+            btn.classList.add('loading');
+            btn.disabled = true;
+            
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Demo: Show success message
+            showSuccess('Access request submitted. An administrator will review your request and your supervisor will be notified. You will receive an email once approved.');
+            btn.classList.remove('loading');
+            btn.disabled = false;
+            e.target.reset();
+        });
+
+        // Alert functions
+        function showError(message) {
+            const alert = document.getElementById('error-alert');
+            alert.textContent = message;
+            alert.classList.add('show');
+        }
+
+        function showSuccess(message) {
+            const alert = document.getElementById('success-alert');
+            alert.textContent = message;
+            alert.classList.add('show');
+        }
+
+        function hideAlerts() {
+            document.querySelectorAll('.alert').forEach(alert => {
+                alert.classList.remove('show');
+            });
+        }
+
+        // SSO buttons (placeholder)
+        document.querySelectorAll('.btn-sso').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const provider = btn.id.includes('google') ? 'Google Workspace' : 'Microsoft 365';
+                // In production, this would initiate OAuth flow
+                alert(`${provider} SSO integration would be configured here.`);
+            });
+        });
+    </script>
+</body>
+</html>

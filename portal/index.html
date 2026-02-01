@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Access | Grand Park Law Group</title>
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #1a1915;
+            --primary-charcoal: #2d2a24;
+            --primary-warm: #3d3830;
+            --primary-light: #4a453c;
+            
+            --accent-gold: #c9a962;
+            --accent-gold-light: #d4bc7d;
+            --accent-gold-dark: #a68b4b;
+            --accent-gold-glow: rgba(201, 169, 98, 0.15);
+            
+            --cream: #f5f2eb;
+            --cream-dark: #e8e4db;
+            --off-white: #faf9f6;
+            --text-light: rgba(250, 249, 246, 0.9);
+            --text-muted: rgba(250, 249, 246, 0.55);
+            --text-dark: #1a1915;
+            
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Outfit', -apple-system, sans-serif;
+            
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            background: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        /* Background */
+        .page-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .page-wrapper::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(90deg, var(--accent-gold) 1px, transparent 1px),
+                linear-gradient(var(--accent-gold) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.02;
+            pointer-events: none;
+        }
+
+        .page-wrapper::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(201, 169, 98, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(201, 169, 98, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 10;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        .header-link {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .header-link:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 300;
+            color: var(--off-white);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .page-subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 400px;
+        }
+
+        /* Portal Cards */
+        .portal-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .portal-card {
+            position: relative;
+            background: var(--primary-charcoal);
+            border: 1px solid rgba(201, 169, 98, 0.08);
+            border-radius: 8px;
+            padding: 3rem 2.5rem;
+            text-decoration: none;
+            text-align: center;
+            transition: all var(--transition-smooth);
+            overflow: hidden;
+        }
+
+        .portal-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity var(--transition-smooth);
+        }
+
+        .portal-card:hover {
+            border-color: rgba(201, 169, 98, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .portal-card:hover::before {
+            opacity: 1;
+        }
+
+        .portal-card-icon {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-warm), var(--primary-light));
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            transition: all var(--transition-smooth);
+        }
+
+        .portal-card:hover .portal-card-icon {
+            background: linear-gradient(135deg, rgba(201, 169, 98, 0.2), rgba(201, 169, 98, 0.1));
+            border-color: rgba(201, 169, 98, 0.3);
+            transform: scale(1.05);
+        }
+
+        .portal-card-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .portal-card-label {
+            position: relative;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .portal-card-title {
+            position: relative;
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--off-white);
+            margin-bottom: 1rem;
+        }
+
+        .portal-card-description {
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .portal-card-cta {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            transition: gap var(--transition-fast);
+        }
+
+        .portal-card:hover .portal-card-cta {
+            gap: 0.75rem;
+        }
+
+        .portal-card-cta svg {
+            width: 16px;
+            height: 16px;
+            transition: transform var(--transition-fast);
+        }
+
+        .portal-card:hover .portal-card-cta svg {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer-text a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-text a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .portal-cards {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .portal-card {
+                padding: 2.5rem 2rem;
+            }
+
+            .page-subtitle {
+                margin-bottom: 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <a href="/" class="logo">Grand Park <span>Law Group</span></a>
+            <a href="/" class="header-link">← Return to Website</a>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="page-title">Portal Access</h1>
+            <p class="page-subtitle">Select your portal to sign in or create an account</p>
+
+            <div class="portal-cards">
+                <!-- Client Portal -->
+                <a href="/portal/client-login.html" class="portal-card">
+                    <div class="portal-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div class="portal-card-label">For Clients</div>
+                    <h2 class="portal-card-title">Client Portal</h2>
+                    <p class="portal-card-description">
+                        Access your matters, view case activity, manage invoices, and communicate with your legal team.
+                    </p>
+                    <span class="portal-card-cta">
+                        Sign In
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Staff Portal -->
+                <a href="/portal/staff-login.html" class="portal-card">
+                    <div class="portal-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <div class="portal-card-label">For Personnel</div>
+                    <h2 class="portal-card-title">Staff Portal</h2>
+                    <p class="portal-card-description">
+                        Access internal applications, firm resources, team communication, and management tools.
+                    </p>
+                    <span class="portal-card-cta">
+                        Sign In
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">
+                © 2025 Grand Park Law Group, A.P.C. · 
+                <a href="/privacy">Privacy</a> · 
+                <a href="/terms">Terms</a> · 
+                <a href="/contact">Contact Support</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

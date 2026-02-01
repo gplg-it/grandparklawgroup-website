@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard | Grand Park Law Group</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           DESIGN TOKENS
+           ============================================ */
+        :root {
+            --primary-dark: #1a1915;
+            --primary-charcoal: #2d2a24;
+            --primary-warm: #3d3830;
+            --primary-light: #4a453c;
+
+            --accent-gold: #c9a962;
+            --accent-gold-light: #d4bc7d;
+            --accent-gold-dark: #a68b4b;
+            --accent-gold-glow: rgba(201, 169, 98, 0.15);
+
+            --cream: #f5f2eb;
+            --cream-dark: #e8e4db;
+            --off-white: #faf9f6;
+            --text-light: rgba(250, 249, 246, 0.9);
+            --text-muted: rgba(250, 249, 246, 0.55);
+            --text-dark: #1a1915;
+
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Outfit', -apple-system, sans-serif;
+
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+            --radius-sm: 3px;
+            --radius-md: 6px;
+            --radius-lg: 10px;
+
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.25);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { font-size: 16px; }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            background: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            height: 64px;
+            background: var(--primary-dark);
+            border-bottom: 1px solid rgba(201, 169, 98, 0.12);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--off-white);
+        }
+
+        .logo span {
+            font-weight: 300;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            background: var(--accent-gold);
+            border-radius: var(--radius-sm);
+        }
+
+        .header-badge svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .header-user {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 6px 14px;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            background: var(--primary-charcoal);
+            border: 1px solid rgba(201, 169, 98, 0.1);
+            border-radius: var(--radius-sm);
+        }
+
+        .header-user svg {
+            width: 14px;
+            height: 14px;
+            color: var(--accent-gold);
+        }
+
+        .header-portal-link {
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            transition: color var(--transition-fast);
+        }
+
+        .header-portal-link:hover {
+            color: var(--accent-gold);
+        }
+
+        /* ============================================
+           MAIN LAYOUT
+           ============================================ */
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 4rem;
+        }
+
+        /* ============================================
+           WELCOME SECTION
+           ============================================ */
+        .welcome {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(201, 169, 98, 0.08);
+        }
+
+        .welcome-greeting {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 400;
+            color: var(--off-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-sub {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        .welcome-sub strong {
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        /* ============================================
+           SECTION HEADERS
+           ============================================ */
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--off-white);
+        }
+
+        .section-count {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           APP GRID
+           ============================================ */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .app-card {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--primary-charcoal);
+            border: 1px solid rgba(201, 169, 98, 0.08);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .app-card:hover {
+            border-color: rgba(201, 169, 98, 0.25);
+            background: var(--primary-warm);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .app-card-icon {
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            background: rgba(201, 169, 98, 0.08);
+            border: 1px solid rgba(201, 169, 98, 0.1);
+            transition: all var(--transition-fast);
+        }
+
+        .app-card:hover .app-card-icon {
+            background: rgba(201, 169, 98, 0.15);
+            border-color: rgba(201, 169, 98, 0.25);
+        }
+
+        .app-card-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent-gold);
+        }
+
+        .app-card-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .app-card-name {
+            font-size: 0.92rem;
+            font-weight: 400;
+            color: var(--off-white);
+            margin-bottom: 2px;
+            transition: color var(--transition-fast);
+        }
+
+        .app-card:hover .app-card-name {
+            color: var(--accent-gold-light);
+        }
+
+        .app-card-desc {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .app-card-arrow {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all var(--transition-fast);
+            color: var(--accent-gold);
+        }
+
+        .app-card:hover .app-card-arrow {
+            opacity: 1;
+            right: 0.75rem;
+        }
+
+        .app-card-arrow svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Featured card — Bio Generator */
+        .app-card.featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--primary-charcoal) 0%, rgba(201, 169, 98, 0.06) 100%);
+            border-color: rgba(201, 169, 98, 0.15);
+            padding: 1.5rem 2rem;
+        }
+
+        .app-card.featured .app-card-icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(201, 169, 98, 0.12);
+            border-color: rgba(201, 169, 98, 0.2);
+        }
+
+        .app-card.featured .app-card-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .app-card.featured .app-card-name {
+            font-size: 1.05rem;
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: 8px;
+            padding: 2px 8px;
+            font-size: 0.55rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: rgba(201, 169, 98, 0.1);
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            border-radius: 2px;
+            vertical-align: middle;
+        }
+
+        /* Category labels */
+        .category-label {
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-gold-dark);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(201, 169, 98, 0.06);
+        }
+
+        /* ============================================
+           QUICK LINKS
+           ============================================ */
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1.25rem;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--text-light);
+            background: var(--primary-charcoal);
+            border: 1px solid rgba(201, 169, 98, 0.06);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .quick-link:hover {
+            border-color: rgba(201, 169, 98, 0.2);
+            color: var(--accent-gold-light);
+            background: var(--primary-warm);
+        }
+
+        .quick-link svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent-gold);
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+           STATUS ROW
+           ============================================ */
+        .status-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .status-card {
+            padding: 1.25rem 1.5rem;
+            background: var(--primary-charcoal);
+            border: 1px solid rgba(201, 169, 98, 0.06);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .status-card-label {
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .status-card-value {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--off-white);
+            line-height: 1.2;
+        }
+
+        .status-card-sub {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* ============================================
+           ANNOUNCEMENTS
+           ============================================ */
+        .announcement-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+        }
+
+        .announcement {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--primary-charcoal);
+            border: 1px solid rgba(201, 169, 98, 0.06);
+            border-radius: var(--radius-md);
+        }
+
+        .announcement-dot {
+            flex-shrink: 0;
+            width: 8px;
+            height: 8px;
+            margin-top: 8px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+        }
+
+        .announcement-dot.info { background: #3b82f6; }
+        .announcement-dot.success { background: #10b981; }
+        .announcement-dot.warning { background: #f59e0b; }
+
+        .announcement-body {
+            flex: 1;
+        }
+
+        .announcement-title {
+            font-size: 0.88rem;
+            font-weight: 400;
+            color: var(--off-white);
+            margin-bottom: 2px;
+        }
+
+        .announcement-meta {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(201, 169, 98, 0.06);
+        }
+
+        .footer-text {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .footer-text a {
+            color: var(--text-muted);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-text a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-internal {
+            font-size: 0.6rem;
+            color: rgba(250, 249, 246, 0.25);
+            margin-top: 0.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 1rem;
+                height: 56px;
+            }
+
+            .header-time,
+            .header-portal-link {
+                display: none;
+            }
+
+            .dashboard {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .app-card.featured {
+                grid-column: 1;
+            }
+
+            .quick-links-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .status-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-left {
+                gap: 0.75rem;
+            }
+
+            .header-badge {
+                display: none;
+            }
+
+            .quick-links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+           PRINT
+           ============================================ */
+        @media print {
+            .header { display: none; }
+            body { background: #fff; color: #000; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="header-left">
+            <a href="/" class="logo">Grand Park <span>Law Group</span></a>
+            <span class="header-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                Staff Portal
+            </span>
+        </div>
+        <div class="header-right">
+            <span class="header-time" id="headerTime"></span>
+            <div class="header-user">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span id="userName">Staff Member</span>
+            </div>
+            <a href="/portal/" class="header-portal-link">Portal Home</a>
+        </div>
+    </header>
+
+    <!-- ==================== DASHBOARD ==================== -->
+    <main class="dashboard">
+
+        <!-- Welcome -->
+        <section class="welcome">
+            <h1 class="welcome-greeting" id="welcomeGreeting">Welcome back</h1>
+            <p class="welcome-sub">
+                <strong>Grand Park Law Group, A.P.C.</strong> — Internal Staff Portal
+            </p>
+        </section>
+
+        <!-- Quick Status -->
+        <section class="status-row">
+            <div class="status-card">
+                <div class="status-card-label">Active Applications</div>
+                <div class="status-card-value">11</div>
+                <div class="status-card-sub">All systems operational</div>
+            </div>
+            <div class="status-card">
+                <div class="status-card-label">Offices</div>
+                <div class="status-card-value">2</div>
+                <div class="status-card-sub">Los Angeles &middot; Chicago</div>
+            </div>
+            <div class="status-card">
+                <div class="status-card-label">Portal Version</div>
+                <div class="status-card-value">1.0</div>
+                <div class="status-card-sub">Updated Jan 2026</div>
+            </div>
+        </section>
+
+        <!-- ========== INTERNAL TOOLS ========== -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Internal Tools</h2>
+                <span class="section-count">Staff-only applications</span>
+            </div>
+
+            <div class="app-grid">
+
+                <!-- FEATURED: Bio Page Generator -->
+                <a href="tools/bio-generator.html" class="app-card featured">
+                    <div class="app-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-card-name">
+                            Bio Page Generator
+                            <span class="featured-badge">Internal Tool</span>
+                        </div>
+                        <div class="app-card-desc">Create and export attorney and staff bio pages with live preview. Generates complete HTML pages, vCard files, and print-ready output.</div>
+                    </div>
+                    <div class="app-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </a>
+
+                <!-- Practice & Operations -->
+                <a href="https://erp.gplg.app" target="_blank" rel="noopener" class="app-card">
+                    <div class="app-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-card-name">ERPNext</div>
+                        <div class="app-card-desc">Practice management, HR, projects</div>
+                    </div>
+                    <div class="app-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </a>
+
+                <a href="https://billing.gplg.app" target="_blank" rel="noopener" class="app-card">
+                    <div class="app-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-card-name">Invoice Ninja</div>
+                        <div class="app-card-desc">Billing, invoicing, payments</div>
+                    </div>
+                    <div class="app-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </a>
+
+                <!-- Communication -->
+                <a href="https://chat.gplg.app" target="_blank" rel="noopener" class="app-card">
+                    <div class="app-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-card-name">Mattermost</div>
+                        <div class="app-card-desc">Team messaging &amp; channels</div>
+                    </div>
+                    <div class="app-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </a>
+
+                <a href="https://mail.google.com" target="_blank" rel="noopener" class="app-card">
+                    <div class="app-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-card-name">Google Workspace</div>
+                        <div class="app-card-desc">Email, Calendar, Drive</div>
+                    </div>
+                    <div class="app-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </a>
+
+                <!-- Content & Marketing -->
+                <a href="https://cms.gplg.app" target="_blank" rel="noopener" class="app-card">
+                    <div class="app-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-card-name">Directus CMS</div>
+                        <div class="app-card-desc">Content management &amp; media</div>
+                    </div>
+                    <div class="app-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </a>
+
+                <a href="https://blog.gplg.app/ghost" target="_blank" rel="noopener" class="app-card">
+                    <div class="app-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-card-name">Ghost CMS</div>
+                        <div class="app-card-desc">Blog &amp; publications</div>
+                    </div>
+                    <div class="app-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </a>
+
+                <a href="https://newsletters.gplg.app" target="_blank" rel="noopener" class="app-card">
+                    <div class="app-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"></path><path d="M22 2L15 22L11 13L2 9L22 2Z"></path></svg>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-card-name">Listmonk</div>
+                        <div class="app-card-desc">Newsletter campaigns &amp; lists</div>
+                    </div>
+                    <div class="app-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </a>
+
+                <a href="https://marketing.gplg.app" target="_blank" rel="noopener" class="app-card">
+                    <div class="app-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-card-name">Mautic</div>
+                        <div class="app-card-desc">Marketing automation &amp; analytics</div>
+                    </div>
+                    <div class="app-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </a>
+
+                <!-- File Storage -->
+                <a href="https://files.gplg.app" target="_blank" rel="noopener" class="app-card">
+                    <div class="app-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-card-name">File Manager</div>
+                        <div class="app-card-desc">Synology shared drives &amp; documents</div>
+                    </div>
+                    <div class="app-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </a>
+
+                <a href="https://passwords.gplg.app" target="_blank" rel="noopener" class="app-card">
+                    <div class="app-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-card-name">Password Vault</div>
+                        <div class="app-card-desc">Shared credentials &amp; secrets</div>
+                    </div>
+                    <div class="app-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- ========== QUICK LINKS ========== -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Quick Links</h2>
+                <span class="section-count">Resources &amp; references</span>
+            </div>
+
+            <div class="quick-links-grid">
+                <a href="https://www.grandparklaw.com" target="_blank" rel="noopener" class="quick-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    Firm Website
+                </a>
+                <a href="https://www.grandparklaw.com/insights" target="_blank" rel="noopener" class="quick-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    Firm Insights
+                </a>
+                <a href="https://calendar.google.com" target="_blank" rel="noopener" class="quick-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Calendar
+                </a>
+                <a href="https://drive.google.com" target="_blank" rel="noopener" class="quick-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    Google Drive
+                </a>
+                <a href="/portal/staff-login.html" class="quick-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    Account Settings
+                </a>
+                <a href="https://support.gplg.app" target="_blank" rel="noopener" class="quick-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    IT Support
+                </a>
+            </div>
+        </section>
+
+        <!-- ========== ANNOUNCEMENTS ========== -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Announcements</h2>
+            </div>
+
+            <div class="announcement-list">
+                <div class="announcement">
+                    <div class="announcement-dot success"></div>
+                    <div class="announcement-body">
+                        <div class="announcement-title">Bio Page Generator Now Available</div>
+                        <div class="announcement-meta">Create professional bio pages for attorneys and staff directly from the Staff Portal. Access it from Internal Tools above.</div>
+                    </div>
+                </div>
+                <div class="announcement">
+                    <div class="announcement-dot info"></div>
+                    <div class="announcement-body">
+                        <div class="announcement-title">Application Migration to gplg.app</div>
+                        <div class="announcement-meta">Internal applications have migrated to *.gplg.app domains. Update your bookmarks accordingly. Legacy URLs will redirect during the transition period.</div>
+                    </div>
+                </div>
+                <div class="announcement">
+                    <div class="announcement-dot"></div>
+                    <div class="announcement-body">
+                        <div class="announcement-title">Staff Portal Launch</div>
+                        <div class="announcement-meta">Welcome to the new centralized Staff Portal. All internal tools and resources are now accessible from this single dashboard.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <p class="footer-text">
+            &copy; 2026 Grand Park Law Group, A.P.C. &middot;
+            <a href="https://www.grandparklaw.com/privacy">Privacy</a> &middot;
+            <a href="https://www.grandparklaw.com/terms">Terms</a> &middot;
+            <a href="https://support.gplg.app">IT Support</a>
+        </p>
+        <p class="footer-internal">Internal use only &mdash; Not for external distribution</p>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        // Time-of-day greeting
+        (function() {
+            const hour = new Date().getHours();
+            let greeting = 'Good evening';
+            if (hour < 12) greeting = 'Good morning';
+            else if (hour < 17) greeting = 'Good afternoon';
+            document.getElementById('welcomeGreeting').textContent = greeting;
+        })();
+
+        // Live clock
+        (function updateClock() {
+            const now = new Date();
+            const opts = { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' };
+            document.getElementById('headerTime').textContent = now.toLocaleDateString('en-US', opts);
+            setTimeout(updateClock, 30000);
+        })();
+
+        // Cloudflare Access user detection
+        // When behind CF Access, the user's email is available in the cf-access-authenticated-user-email header.
+        // For display, we try to read it from a cookie or show a default.
+        (function detectUser() {
+            try {
+                const cookies = document.cookie.split(';').reduce((acc, c) => {
+                    const [k, v] = c.trim().split('=');
+                    acc[k] = v;
+                    return acc;
+                }, {});
+
+                // CF Access sets a JWT — we can decode the payload for the email
+                const token = cookies['CF_Authorization'];
+                if (token) {
+                    const payload = JSON.parse(atob(token.split('.')[1]));
+                    if (payload.email) {
+                        const name = payload.email.split('@')[0].replace(/[._]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                        document.getElementById('userName').textContent = name;
+                        document.getElementById('welcomeGreeting').textContent += ', ' + name.split(' ')[0];
+                    }
+                }
+            } catch (e) {
+                // Silent fail — default text remains
+            }
+        })();
+    </script>
+
+</body>
+</html>
