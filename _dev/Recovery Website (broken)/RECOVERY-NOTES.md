@@ -43,7 +43,7 @@ for all of them. They were never uploaded to the Cloudflare Pages deployment:
 | `/assets/images/logo.svg` | JSON-LD structured data |
 | `/assets/images/hero-poster.jpg` | Landing page (video fallback) |
 | `/assets/images/attorneys/jaafari.jpg` | Landing page (team section) |
-| `/assets/images/attorneys/rosario.jpg` | Landing page (team section) |
+| `/assets/images/attorneys/richie.jpg` | Landing page (team section) |
 
 ### Unbuilt Pages (12 routes)
 These routes existed in the navigation and internal links but the server
@@ -62,7 +62,7 @@ its catch-all HTML page for missing assets.
 - `favicon.svg.html` → `favicon.svg`
 - `apple-touch-icon.png.html` → `apple-touch-icon.png`
 - `jaafari.jpg.html` → `jaafari.jpg`
-- `rosario.jpg.html` → `rosario.jpg`
+- `richie.jpg.html` → `richie.jpg`
 
 **Also corrected:** Relative paths (`assets/...`) converted to absolute
 (`/assets/...`) for deployment consistency.

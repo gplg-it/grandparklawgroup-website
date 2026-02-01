@@ -81,7 +81,7 @@ grandpark-law-website/
 | `/practices/real-property/` | Real Property |
 | `/practices/corporate-governance/` | Corporate Governance |
 | `/professionals/armand-jaafari/` | Armand Jaafari |
-| `/professionals/danae-rosario/` | Danae Rosario |
+| `/professionals/danae-richie/` | Danae Richie |
 
 ### Portal Pages (3 pages — self-contained)
 
