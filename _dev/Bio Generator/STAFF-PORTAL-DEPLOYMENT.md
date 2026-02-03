@@ -116,7 +116,7 @@ Configure as follows:
 |-------|-------|
 | **Application name** | `Grand Park Staff Portal` |
 | **Session Duration** | `24 hours` (or per firm policy) |
-| **Application domain** | `www.grandparklaw.com` (or your Pages domain) |
+| **Application domain** | `www.grandparklawgroup.com` (or your Pages domain) |
 | **Path** | `/portal/staff/` |
 
 > **Critical:** The trailing slash on `/portal/staff/` ensures the entire subdirectory is protected.
@@ -129,7 +129,7 @@ Click **Next**.
 |-------|-------|
 | **Policy name** | `Staff — Google Workspace` |
 | **Action** | `Allow` |
-| **Include rule** | Emails Ending In: `@grandparklaw.com` |
+| **Include rule** | Emails Ending In: `@grandparklawgroup.com` |
 
 **Alternative configurations:**
 
@@ -138,7 +138,7 @@ For specific users only:
 
 For Google Workspace group:
 - **Include rule → Login Methods:** `Google`
-- **Include rule → Emails Ending In:** `@grandparklaw.com`
+- **Include rule → Emails Ending In:** `@grandparklawgroup.com`
 
 For Microsoft 365 hybrid:
 - Add a second **Include** rule: `Emails Ending In: @grandparklaw.onmicrosoft.com`
@@ -149,7 +149,7 @@ Click **Next**, then **Add application**.
 
 ```bash
 # This should redirect to Cloudflare Access login screen
-curl -I https://www.grandparklaw.com/portal/staff/
+curl -I https://www.grandparklawgroup.com/portal/staff/
 
 # Expected response:
 # HTTP/2 302
@@ -320,7 +320,7 @@ The tool inherits Cloudflare Access protection automatically — no additional c
 | Issue | Resolution |
 |-------|------------|
 | Access loop / infinite redirect | Verify the application domain and path match exactly in CF Access settings |
-| "Access Denied" for valid user | Check that the user's email matches the Access policy (e.g., ends in `@grandparklaw.com`) |
+| "Access Denied" for valid user | Check that the user's email matches the Access policy (e.g., ends in `@grandparklawgroup.com`) |
 | Dashboard shows "Staff Member" instead of name | CF_Authorization cookie may not be set; verify Cloudflare Access is active on the path |
 | Bio generator preview blank | Check browser console for errors; ensure Google Fonts can load (fonts.googleapis.com not blocked) |
 | Download not triggering | Some browsers block programmatic downloads; try right-click → Save As on the download button |

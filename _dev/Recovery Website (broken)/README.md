@@ -3,7 +3,7 @@
 **Grand Park Law Group, A.P.C.**  
 11835 W Olympic Blvd, Suite 870E  
 Los Angeles, CA 90064  
-[grandparklaw.com](https://grandparklaw.com)
+[grandparklawgroup.com](https://grandparklawgroup.com)
 
 ---
 

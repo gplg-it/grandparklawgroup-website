@@ -589,7 +589,7 @@
 
                 <div class="field-group">
                     <label class="field-label">Email <span class="required">*</span></label>
-                    <input type="email" class="field-input" id="email" placeholder="jmartinez@grandparklaw.com">
+                    <input type="email" class="field-input" id="email" placeholder="jmartinez@grandparklawgroup.com">
                 </div>
 
                 <div class="field-row">
@@ -1081,8 +1081,8 @@
             const photoFile = d.photoOverride || `${d.slug}.jpg`;
             const photoPath = `/images/${photoDir}/${photoFile}`;
             const profileUrl = isAttorney
-                ? `https://www.grandparklaw.com/professionals/${d.slug}`
-                : `https://www.grandparklaw.com/team/${d.slug}`;
+                ? `https://www.grandparklawgroup.com/professionals/${d.slug}`
+                : `https://www.grandparklawgroup.com/team/${d.slug}`;
             const pageTitle = isAttorney
                 ? `${d.fullName} | Professionals | Grand Park Law Group`
                 : `${d.fullName} | Our Team | Grand Park Law Group`;
@@ -1101,7 +1101,7 @@
         "name": "${esc(d.fullName)}",
         "jobTitle": "${esc(d.title)}",
         "description": "${esc(d.bioLead)}",
-        "image": "https://www.grandparklaw.com${photoPath}",
+        "image": "https://www.grandparklawgroup.com${photoPath}",
         "url": "${profileUrl}",
         "email": "${esc(d.email)}",
         "telephone": "${esc(d.phoneDisplay)}",
@@ -1115,7 +1115,7 @@
         "name": "${esc(d.fullName)}",
         "jobTitle": "${esc(d.staffRole)}",
         "description": "${esc(d.bioLead)}",
-        "image": "https://www.grandparklaw.com${photoPath}",
+        "image": "https://www.grandparklawgroup.com${photoPath}",
         "url": "${profileUrl}",
         "email": "${esc(d.email)}",
         "telephone": "${esc(d.phoneDisplay)}",
@@ -1264,7 +1264,7 @@
             department: '',
             address: { street: '${escJS(d.office.address)}', city: '${escJS(d.office.city)}', state: '${escJS(d.office.state)}', zip: '${escJS(d.office.zip)}', country: 'USA' },
             url: '${profileUrl}',
-            photoUrl: 'https://www.grandparklaw.com${photoPath}'
+            photoUrl: 'https://www.grandparklawgroup.com${photoPath}'
         };` : `
         const PERSON_DATA = {
             firstName: '${escJS(d.firstName)}',
@@ -1277,7 +1277,7 @@
             department: '${escJS(d.department || '')}',
             address: { street: '${escJS(d.office.address)}', city: '${escJS(d.office.city)}', state: '${escJS(d.office.state)}', zip: '${escJS(d.office.zip)}', country: 'USA' },
             url: '${profileUrl}',
-            photoUrl: 'https://www.grandparklaw.com${photoPath}'
+            photoUrl: 'https://www.grandparklawgroup.com${photoPath}'
         };`;
 
             // ===== FULL PAGE ASSEMBLY =====
@@ -1621,7 +1621,7 @@ ORG:Grand Park Law Group, A.P.C.${dept ? ';' + dept : ''}
 EMAIL;TYPE=WORK:${data.email}
 TEL;TYPE=WORK:${data.phoneRaw}
 ADR;TYPE=WORK:;;${data.office.address};${data.office.city};${data.office.state};${data.office.zip};USA
-URL:https://www.grandparklaw.com/${data.category === 'attorney' ? 'professionals' : 'team'}/${data.slug}
+URL:https://www.grandparklawgroup.com/${data.category === 'attorney' ? 'professionals' : 'team'}/${data.slug}
 END:VCARD`;
 
             const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
