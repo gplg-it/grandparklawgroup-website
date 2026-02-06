@@ -705,7 +705,7 @@
                         <div class="form-checkbox">
                             <input type="checkbox" id="signup-terms" name="terms" required>
                             <label for="signup-terms">
-                                I agree to the <a href="/terms" target="_blank">Terms of Service</a> and <a href="/privacy" target="_blank">Privacy Policy</a>
+                                I agree to the <a href="/legal/terms" target="_blank">Terms of Service</a> and <a href="/legal/privacy" target="_blank">Privacy Policy</a>
                             </label>
                         </div>
 
@@ -732,7 +732,7 @@
         <!-- Footer -->
         <footer class="footer">
             <p class="footer-text">
-                © 2026 Grand Park Law Group, A.P.C. · 
+                &copy; 2026 Grand Park Law Group, A.P.C. &middot; 
                 <a href="/contact">Need help? Contact support</a>
             </p>
         </footer>
@@ -806,6 +806,20 @@
             
             if (password !== confirm) {
                 showError('Passwords do not match.');
+                return;
+            }
+            
+            // Password strength validation
+            if (password.length < 8) {
+                showError('Password must be at least 8 characters.');
+                return;
+            }
+            const hasUpper = /[A-Z]/.test(password);
+            const hasLower = /[a-z]/.test(password);
+            const hasNumber = /[0-9]/.test(password);
+            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+            if (!hasUpper || !hasLower || !hasNumber || !hasSpecial) {
+                showError('Password must include uppercase, lowercase, number, and special character.');
                 return;
             }
             
