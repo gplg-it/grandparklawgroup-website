@@ -228,7 +228,7 @@ img {
     font-size: var(--text-4xl);
     font-weight: 300;
     line-height: 1.2;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
 }
 
 /* Screen Reader Only */
@@ -296,7 +296,7 @@ img {
 
 .section-header {
     text-align: center;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
 }
 
 /* ============================================

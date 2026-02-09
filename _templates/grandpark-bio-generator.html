@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M649WB9Z');</script>
+<!-- End Google Tag Manager --> 
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio Page Generator | Grand Park Law Group â€” Internal Tool</title>
+    <title>Bio Page Generator | Grand Park Law Group  Internal Tool</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ============================================
-           GRAND PARK BIO GENERATOR â€” INTERNAL TOOL
+           GRAND PARK BIO GENERATOR  INTERNAL TOOL
            ============================================ */
         :root {
             --primary-dark: #1a1915;
@@ -178,7 +185,7 @@
         }
 
         /* ============================================
-           MAIN LAYOUT â€” Two Panels
+           MAIN LAYOUT  Two Panels
            ============================================ */
         .generator-layout {
             display: grid;
@@ -187,7 +194,7 @@
         }
 
         /* ============================================
-           LEFT PANEL â€” FORM
+           LEFT PANEL  FORM
            ============================================ */
         .form-panel {
             background: var(--primary-charcoal);
@@ -394,7 +401,7 @@
         }
 
         /* ============================================
-           RIGHT PANEL â€” PREVIEW
+           RIGHT PANEL  PREVIEW
            ============================================ */
         .preview-panel {
             background: var(--primary-dark);
@@ -530,12 +537,15 @@
     </style>
 </head>
 <body>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M649WB9Z"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <!-- ==================== TOOLBAR ==================== -->
     <div class="toolbar">
         <div class="toolbar-brand">
             <span class="toolbar-brand-name">Bio Page Generator</span>
-            <span class="toolbar-brand-sub">Grand Park Law Group â€” Internal Tool</span>
+            <span class="toolbar-brand-sub">Grand Park Law Group  Internal Tool</span>
         </div>
 
         <div class="category-toggle">
@@ -666,7 +676,7 @@
                 <div class="field-group" style="margin-top: 16px;">
                     <label class="field-label">Office Location</label>
                     <select class="field-select" id="officeLocation">
-                        <option value="los-angeles" data-city="Los Angeles" data-state="CA" data-zip="90017" data-address="515 S. Flower Street, Suite 4400">Los Angeles</option>
+                        <option value="los-angeles" data-city="Los Angeles" data-state="CA" data-zip="90064" data-address="11835 W Olympic Blvd., Suite 870E">Los Angeles</option>
                         <option value="chicago" data-city="Chicago" data-state="IL" data-zip="60601" data-address="233 S. Wacker Drive, Suite 6300">Chicago</option>
                     </select>
                 </div>
@@ -683,17 +693,17 @@
                 </div>
 
                 <div class="field-group">
-                    <label class="field-label">Bio â€” Paragraph 1 <span class="required">*</span></label>
+                    <label class="field-label">Bio  Paragraph 1 <span class="required">*</span></label>
                     <textarea class="field-textarea" id="bioPara1" placeholder="Main biographical paragraph covering experience and focus areas." rows="4"></textarea>
                 </div>
 
                 <div class="field-group">
-                    <label class="field-label">Bio â€” Paragraph 2</label>
+                    <label class="field-label">Bio  Paragraph 2</label>
                     <textarea class="field-textarea" id="bioPara2" placeholder="Additional detail about background, approach, or notable accomplishments." rows="4"></textarea>
                 </div>
 
                 <div class="field-group">
-                    <label class="field-label">Bio â€” Extended (Read More)</label>
+                    <label class="field-label">Bio  Extended (Read More)</label>
                     <textarea class="field-textarea" id="bioPara3" placeholder="Additional content shown when visitor clicks 'Read More'. Optional." rows="4"></textarea>
                 </div>
             </div>
@@ -826,7 +836,7 @@
                 <div class="field-group">
                     <label class="field-label">Photo Filename Override</label>
                     <input type="text" class="field-input" id="photoOverride" placeholder="Leave blank to auto-generate from name">
-                    <p class="field-hint" id="photoPathHint">Auto path: /images/professionals/[slug].jpg â€” min 600Ã—750px, 4:5 ratio</p>
+                    <p class="field-hint" id="photoPathHint">Auto path: /images/professionals/[slug].jpg  min 600Ã—750px, 4:5 ratio</p>
                 </div>
             </div>
 
@@ -851,7 +861,7 @@
     <div class="status-bar">
         <div class="status-indicator">
             <span class="status-dot" id="statusDot"></span>
-            <span id="statusText">Ready â€” select a category and fill in the form</span>
+            <span id="statusText">Ready  select a category and fill in the form</span>
         </div>
         <span id="statusMeta">Grand Park Law Group Bio Generator v1.0</span>
     </div>
@@ -880,7 +890,7 @@
             // Update photo hint
             const dir = cat === 'attorney' ? 'attorneys' : 'team';
             document.getElementById('photoPathHint').textContent = 
-                `Auto path: /images/${dir}/[slug].jpg â€” min ${cat === 'attorney' ? '800Ã—1000' : '600Ã—750'}px, 4:5 ratio`;
+                `Auto path: /images/${dir}/[slug].jpg  min ${cat === 'attorney' ? '800Ã—1000' : '600Ã—750'}px, 4:5 ratio`;
             
             updateStatus();
         }
@@ -1156,7 +1166,7 @@
                                 <span class="degree">${esc(e.degree)}${e.year ? ', ' + esc(e.year) : ''}</span>
                                 ${e.school ? `<span class="school">${esc(e.school)}</span>` : ''}
                                 ${e.honors ? `<span class="honors">${esc(e.honors)}</span>` : ''}
-                            </li>`).join('') : '<li>â€”</li>';
+                            </li>`).join('') : '<li></li>';
 
             // Credentials section content varies
             let credentialsContent;
@@ -1284,7 +1294,14 @@
             return `<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M649WB9Z');</script>
+<!-- End Google Tag Manager --> 
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${esc(pageTitle)}</title>
     <meta name="description" content="${esc(d.bioLead)}">
@@ -1331,7 +1348,10 @@ img{max-width:100%;height:auto}a{color:inherit;text-decoration:none}button{curso
     </style>
 </head>
 <body>
-    <header class="header" id="header">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M649WB9Z"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->    <header class="header" id="header">
         <a href="/" class="logo">
             <span class="logo-text">Grand Park Law Group</span>
             <span class="logo-tagline">A Professional Corporation</span>
