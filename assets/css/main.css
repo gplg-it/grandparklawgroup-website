@@ -633,6 +633,38 @@
     color: var(--accent-gold);
 }
 
+/* Footer Resources sub-menu */
+.footer-resource-label {
+    margin-top: calc(var(--space-xs) + 4px);
+    margin-bottom: 2px;
+}
+
+.footer-resource-label a {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-gold) !important;
+    opacity: 0.75;
+    transition: opacity var(--transition-fast);
+}
+
+.footer-resource-label a:hover {
+    opacity: 1;
+    color: var(--accent-gold) !important;
+}
+
+.footer-resource-item a {
+    padding-left: 0.8rem;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+}
+
+.footer-resource-item a:hover {
+    color: var(--accent-gold);
+}
+
 /* ============================================
    BACK TO TOP BUTTON
    ============================================ */
@@ -715,8 +747,30 @@
     .hero {
         min-height: 600px;
     }
-    
+
     .hero-content {
         padding: 0 var(--space-sm);
     }
+}
+
+/* ============================================
+   CONTRAST FIX — LIGHT BACKGROUND SECTIONS
+   --text-muted is near-white (designed for dark
+   backgrounds). Override to a dark readable tone
+   wherever content sits on light/white bg.
+   ============================================ */
+.directory-page,
+.info-page,
+.resources-section {
+    --text-muted: rgba(26, 25, 21, 0.62);
+}
+
+/* Restore light text inside dark sub-elements
+   that appear within those light-bg wrappers */
+.directory-disclaimer,
+.pacer-box,
+.stats-row,
+.page-banner,
+.info-disclaimer {
+    --text-muted: rgba(250, 249, 246, 0.55);
 }
