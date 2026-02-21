@@ -57,13 +57,13 @@
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
-            
+
             if (currentScroll > scrollThreshold) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-            
+
             lastScroll = currentScroll;
         }, { passive: true });
     }
