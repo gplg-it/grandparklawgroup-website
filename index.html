@@ -31,8 +31,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="twitter:image" content="https://grandparklawgroup.com/assets/images/og-default.jpg">
     
     
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg.html">
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png.html">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,8 +112,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
         <a href="practices/index.html" class="nav-link">Practices</a>
         
-        <a href="professionals/index.html" class="nav-link">Professionals</a>
-        
         <a href="insights/index.html" class="nav-link">Insights</a>
         
         <a href="contact/index.html" class="nav-link">Contact</a>
@@ -144,8 +142,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <a href="about/index.html" class="menu-nav-link">About</a>
             
             <a href="practices/index.html" class="menu-nav-link">Practices</a>
-            
-            <a href="professionals/index.html" class="menu-nav-link">Professionals</a>
             
             <a href="insights/index.html" class="menu-nav-link">Insights</a>
             
@@ -191,13 +187,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
 
 <section class="hero" id="hero" data-section="0">
-    <div class="hero-video-container">
-        
-        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
-            
-        </video>
-        <div class="hero-poster"></div>
-    </div>
+    <!-- Background Video — randomly selected on each page load -->
+    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto"></video>
+    <script>
+        (function() {
+            var videos = [
+                'assets/videos/hero-1.mp4',
+                'assets/videos/hero-2.mp4',
+                'assets/videos/hero-3.mp4',
+                'assets/videos/hero-4.mp4',
+                'assets/videos/hero-5.mp4',
+                'assets/videos/hero-6.mp4',
+                'assets/videos/hero-7.mp4',
+                'assets/videos/hero-8.mp4'
+            ];
+            var v = document.getElementById('heroVideo');
+            var pick = videos[Math.floor(Math.random() * videos.length)];
+            v.src = pick;
+            v.load();
+            v.play().catch(function() {
+                document.addEventListener('click', function once() {
+                    v.play();
+                    document.removeEventListener('click', once);
+                });
+            });
+        })();
+    </script>
     <div class="hero-overlay"></div>
     <div class="hero-grain"></div>
     
@@ -205,12 +220,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <p class="hero-eyebrow">Dedicated Advocates</p>
         <h1 class="hero-title">When It <em>Matters</em> Most.</h1>
         <p class="hero-subtitle">Strategic counsel and fierce advocacy for individuals and businesses facing life's most critical legal challenges.</p>
-        <a href="contact/index.html" class="hero-cta">
-            Free Consultation
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-        </a>
     </div>
     
     
@@ -336,22 +345,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="stats-container reveal">
             
             <div class="stat-item">
-                <div class="stat-number">$5M+</div>
+                <div class="stat-number" data-count="500" data-prefix="$" data-suffix="M+">$0</div>
                 <div class="stat-label">Recovered for Clients</div>
             </div>
-            
+
             <div class="stat-item">
-                <div class="stat-number">1,200+</div>
+                <div class="stat-number" data-count="1200" data-suffix="+">0</div>
                 <div class="stat-label">Cases Won</div>
             </div>
-            
+
             <div class="stat-item">
-                <div class="stat-number">15+</div>
+                <div class="stat-number" data-count="25" data-suffix="+">0</div>
                 <div class="stat-label">Years Experience</div>
             </div>
-            
+
             <div class="stat-item">
-                <div class="stat-number">100%</div>
+                <div class="stat-number" data-count="98" data-suffix="%">0</div>
                 <div class="stat-label">Client Satisfaction</div>
             </div>
             
@@ -394,71 +403,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <button class="section-nav section-nav-up" data-scroll-to="stats" aria-label="Previous section">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
-    <button class="section-nav section-nav-down" data-scroll-to="team" aria-label="Next section">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
-    </button>
-</section>
-
-
-<section class="section section-fullscreen section-charcoal" id="team" data-section="4">
-    <div class="section-inner">
-        <div class="section-header reveal">
-            <p class="eyebrow">Our Leadership</p>
-            <h2 class="section-title">Meet Our Team</h2>
-        </div>
-        
-        <div class="team-grid">
-            
-            <a href="professionals/armand-jaafari/index.html" class="team-member reveal">
-                <div class="team-member-image-wrap">
-                    <img src="assets/images/attorneys/jaafari.jpg.html" alt="Armand J. Jaafari" class="team-member-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="team-member-placeholder">
-                        <span>A</span>
-                    </div>
-                </div>
-                <div class="team-member-overlay">
-                    <h3 class="team-member-name">Armand J. Jaafari</h3>
-                    <p class="team-member-role">Managing Partner</p>
-                    <p class="team-member-practice">Litigation &amp; Trial Practice</p>
-                </div>
-            </a>
-            
-            <a href="professionals/danae-richie/index.html" class="team-member reveal">
-                <div class="team-member-image-wrap">
-                    <img src="assets/images/attorneys/richie.jpg.html" alt="Danae Richie" class="team-member-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="team-member-placeholder">
-                        <span>D</span>
-                    </div>
-                </div>
-                <div class="team-member-overlay">
-                    <h3 class="team-member-name">Danae Richie</h3>
-                    <p class="team-member-role">Partner</p>
-                    <p class="team-member-practice">Civil Litigation</p>
-                </div>
-            </a>
-            
-        </div>
-        
-        <div style="text-align: center; margin-top: var(--space-md);" class="reveal">
-            <a href="professionals/index.html" class="btn btn-secondary">
-                View All Professionals
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-            </a>
-        </div>
-    </div>
-    
-    <button class="section-nav section-nav-up" data-scroll-to="insight" aria-label="Previous section">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
-    </button>
     <button class="section-nav section-nav-down" data-scroll-to="testimonial" aria-label="Next section">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
     </button>
 </section>
 
 
-<section class="section section-fullscreen section-warm" id="testimonial" data-section="5">
+<section class="section section-fullscreen section-warm" id="testimonial" data-section="4">
     <span class="testimonial-bg-text">"</span>
     <div class="testimonial-content reveal">
         <span class="testimonial-quote-mark">"</span>
@@ -468,8 +419,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <span class="testimonial-author-title">Personal Injury Case</span>
         </div>
     </div>
-    
-    <button class="section-nav section-nav-up" data-scroll-to="team" aria-label="Previous section">
+
+    <button class="section-nav section-nav-up" data-scroll-to="insight" aria-label="Previous section">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
     <button class="section-nav section-nav-down" data-scroll-to="contact" aria-label="Next section">
@@ -487,6 +438,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* Enable smooth scroll snap on desktop */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 0;  /* Override interior-page offset for fullscreen sections */
 }
 
 @media (min-width: 769px) {
@@ -717,32 +669,19 @@ html {
 }
 
 .hero-video {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.5s ease;
-}
-
-.hero-video.loaded {
-    opacity: 1;
-}
-
-.hero-poster {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-charcoal) 100%);
-    z-index: -1;
+    z-index: 1;
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
     z-index: 2;
-    background: 
-        linear-gradient(180deg, rgba(26, 25, 21, 0.4) 0%, transparent 30%),
-        linear-gradient(0deg, rgba(26, 25, 21, 0.7) 0%, transparent 50%),
-        linear-gradient(90deg, rgba(26, 25, 21, 0.5) 0%, transparent 50%);
+    background: rgba(26, 25, 21, 0.45);
 }
 
 .hero-grain {
@@ -766,7 +705,7 @@ html {
     font-family: var(--font-body);
     font-size: 0.7rem;
     font-weight: 400;
-    letter-spacing: 0.5em;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
     color: var(--accent-gold);
     margin-bottom: var(--space-md);
@@ -876,18 +815,38 @@ html {
     left: 0;
     width: 100%;
     height: 3px;
-    background: var(--accent-gold);
+    background: linear-gradient(90deg, var(--accent-gold), #e2c878, var(--accent-gold));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Radial gold glow that follows card center on hover */
+.practice-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(226, 200, 120, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
 }
 
 .practice-card:hover::before {
     transform: scaleX(1);
 }
 
+.practice-card:hover::after {
+    opacity: 1;
+}
+
 .practice-card:hover {
     background: var(--primary-warm);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(201, 169, 98, 0.05);
 }
 
 .practice-number {
@@ -962,6 +921,11 @@ html {
     text-align: center;
     padding: var(--space-md);
     position: relative;
+    transition: transform 0.4s ease;
+}
+
+.stat-item:hover {
+    transform: scale(1.05);
 }
 
 .stat-item::after {
@@ -983,9 +947,19 @@ html {
     font-family: var(--font-display);
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 300;
-    color: var(--accent-gold);
+    background: linear-gradient(135deg, #c9a962 0%, #e2c878 40%, #f0dfa0 50%, #e2c878 60%, #c9a962 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: statShimmer 4s ease-in-out infinite;
     line-height: 1;
     margin-bottom: var(--space-sm);
+}
+
+@keyframes statShimmer {
+    0%, 100% { background-position: 200% center; }
+    50% { background-position: 0% center; }
 }
 
 .stat-label {
@@ -994,6 +968,11 @@ html {
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--primary-warm);
+    transition: color 0.3s ease;
+}
+
+.stat-item:hover .stat-label {
+    color: var(--accent-gold-dark);
 }
 
 /* ============================================
@@ -1309,96 +1288,9 @@ html {
 
 
 <script>
-/**
- * ============================================
- * VIDEO CONFIGURATION
- * ============================================
- * 
- * HOW TO CHANGE THE HERO VIDEO:
- * 
- * 1. Upload your HD video to a hosting service (Cloudflare Stream, 
- *    Vimeo, your own server, etc.)
- * 
- * 2. Replace the URL in the 'sources' array below with your video URL
- * 
- * 3. You can add multiple sources as backups - the browser will try
- *    them in order until one works
- * 
- * 4. For best results, use:
- *    - MP4 format with H.264 codec
- *    - 1920x1080 resolution or higher
- *    - 15-30 seconds duration (it loops)
- *    - File size under 10MB for fast loading
- * 
- * EXAMPLE:
- *   sources: [
- *       { src: '/assets/videos/hero-main.mp4', type: 'video/mp4' },
- *       { src: '/assets/videos/hero-backup.mp4', type: 'video/mp4' }
- *   ]
- */
-
-var VIDEO_CONFIG = {
-    // Add your video URLs here
-    sources: [
-        {
-            // Primary video - Replace this URL with your own video
-            src: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-702-large.mp4',
-            type: 'video/mp4'
-        },
-        {
-            // Backup video - Optional fallback
-            src: 'https://assets.mixkit.co/videos/preview/mixkit-white-sand-beach-and-palm-trees-1564-large.mp4',
-            type: 'video/mp4'
-        }
-    ],
-    
-    // Poster image shown while video loads
-    // Replace with your own image: '/assets/images/hero-poster.jpg'
-    poster: ''
-};
-
-// ============================================
-// DO NOT EDIT BELOW THIS LINE
-// (unless you know what you're doing)
-// ============================================
-
 (function() {
     'use strict';
-    
-    // Initialize hero video
-    function initHeroVideo() {
-        var video = document.getElementById('heroVideo');
-        if (!video || !VIDEO_CONFIG.sources.length) return;
-        
-        // Clear existing sources
-        video.innerHTML = '';
-        
-        // Add configured sources
-        VIDEO_CONFIG.sources.forEach(function(source) {
-            var sourceEl = document.createElement('source');
-            sourceEl.src = source.src;
-            sourceEl.type = source.type;
-            video.appendChild(sourceEl);
-        });
-        
-        // Set poster if configured
-        if (VIDEO_CONFIG.poster) {
-            video.poster = VIDEO_CONFIG.poster;
-        }
-        
-        // Load and show video when ready
-        video.load();
-        
-        video.addEventListener('canplaythrough', function() {
-            video.classList.add('loaded');
-        });
-        
-        // Fallback: show video after timeout even if not fully loaded
-        setTimeout(function() {
-            video.classList.add('loaded');
-        }, 3000);
-    }
-    
+
     // Initialize all scroll navigation buttons
     function initScrollNavigation() {
         var scrollButtons = document.querySelectorAll('[data-scroll-to]');
@@ -1479,13 +1371,85 @@ var VIDEO_CONFIG = {
         });
     }
     
+    // Animated stat counters
+    function initStatCounters() {
+        var counters = document.querySelectorAll('[data-count]');
+        if (!counters.length) return;
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (!entry.isIntersecting) return;
+                var el = entry.target;
+                if (el.dataset.counted) return;
+                el.dataset.counted = '1';
+
+                var target = parseInt(el.dataset.count);
+                var prefix = el.dataset.prefix || '';
+                var suffix = el.dataset.suffix || '';
+                var duration = 2000;
+                var start = performance.now();
+
+                function step(now) {
+                    var progress = Math.min((now - start) / duration, 1);
+                    var ease = 1 - Math.pow(1 - progress, 3);
+                    var current = Math.floor(ease * target);
+                    el.textContent = prefix + current.toLocaleString() + suffix;
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            });
+        }, { threshold: 0.4 });
+
+        counters.forEach(function(c) { observer.observe(c); });
+    }
+
+    // Hero mouse parallax
+    function initHeroParallax() {
+        var hero = document.getElementById('hero');
+        var content = hero && hero.querySelector('.hero-content');
+        if (!hero || !content) return;
+
+        hero.addEventListener('mousemove', function(e) {
+            var rect = hero.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width - 0.5;
+            var y = (e.clientY - rect.top) / rect.height - 0.5;
+            content.style.transform = 'translate(' + (x * -8) + 'px, ' + (y * -6) + 'px)';
+        });
+
+        hero.addEventListener('mouseleave', function() {
+            content.style.transform = 'translate(0, 0)';
+            content.style.transition = 'transform 0.6s ease';
+            setTimeout(function() { content.style.transition = ''; }, 600);
+        });
+    }
+
+    // Practice card tilt on hover
+    function initCardTilt() {
+        var cards = document.querySelectorAll('.practice-card');
+        cards.forEach(function(card) {
+            card.addEventListener('mousemove', function(e) {
+                var rect = card.getBoundingClientRect();
+                var x = (e.clientX - rect.left) / rect.width;
+                var y = (e.clientY - rect.top) / rect.height;
+                var rotY = (x - 0.5) * 6;
+                var rotX = (0.5 - y) * 4;
+                card.style.transform = 'translateY(-4px) perspective(600px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
+            });
+            card.addEventListener('mouseleave', function() {
+                card.style.transform = '';
+            });
+        });
+    }
+
     // Initialize everything when DOM is ready
     function init() {
-        initHeroVideo();
         initScrollNavigation();
         initKeyboardNav();
+        initStatCounters();
+        initHeroParallax();
+        initCardTilt();
     }
-    
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
@@ -1552,9 +1516,7 @@ var VIDEO_CONFIG = {
             <ul class="footer-links">
                 
                 <li><a href="about/index.html">About</a></li>
-                
-                <li><a href="professionals/index.html">Professionals</a></li>
-                
+
                 <li><a href="careers/index.html">Careers</a></li>
                 
                 <li><a href="pro-bono/index.html">Pro Bono</a></li>

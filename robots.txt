@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /portal/
+Disallow: /_dev/
+Disallow: /_templates/
+
+Sitemap: https://grandparklawgroup.com/sitemap.xml

@@ -20,30 +20,6 @@
         });
     }
 
-    // ============================================
-    // LAZY VIDEO LOADING
-    // ============================================
-    function initLazyVideo() {
-        const video = document.getElementById('heroVideo');
-        if (!video) return;
-
-        const source = video.querySelector('source[data-src]');
-        if (!source) return;
-
-        // Set the actual video source
-        source.src = source.getAttribute('data-src');
-        video.load();
-
-        // When video is ready to play, show it
-        video.addEventListener('canplay', () => {
-            video.classList.add('loaded');
-        });
-
-        // Fallback if video fails to load
-        video.addEventListener('error', () => {
-            console.log('Video failed to load, showing poster');
-        });
-    }
 
     // ============================================
     // HEADER SCROLL EFFECT
@@ -293,7 +269,6 @@
     // ============================================
     function init() {
         initLoader();
-        initLazyVideo();
         initHeaderScroll();
         initMobileMenu();
         initScrollReveal();

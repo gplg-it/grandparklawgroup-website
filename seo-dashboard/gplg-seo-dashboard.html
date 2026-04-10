@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Master Package — Grand Park Law Group</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap');
+
+  :root {
+    --dark: #1a1915;
+    --charcoal: #2d2a24;
+    --warm: #3d3830;
+    --light: #4a453c;
+    --gold: #c9a962;
+    --gold-light: #d4bc7d;
+    --gold-dark: #a68b4b;
+    --gold-glow: rgba(201,169,98,0.12);
+    --cream: #f5f2eb;
+    --cream-dark: #e8e4db;
+    --off-white: #faf9f6;
+    --text: rgba(250,249,246,0.92);
+    --muted: rgba(250,249,246,0.5);
+    --faint: rgba(250,249,246,0.08);
+    --font-d: 'Cormorant Garamond', Georgia, serif;
+    --font-b: 'Outfit', -apple-system, sans-serif;
+    --green: #5a9e78;
+    --amber: #c9a45a;
+    --red: #b85c5c;
+    --blue: #5a7fa0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: var(--font-b);
+    font-weight: 300;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, var(--charcoal) 0%, #26231e 100%);
+    border-bottom: 1px solid rgba(201,169,98,0.2);
+    padding: 40px 60px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-eyebrow {
+    font-family: var(--font-b);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .header-title {
+    font-family: var(--font-d);
+    font-size: 42px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--off-white);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .header-title em { color: var(--gold); font-style: italic; }
+  .header-sub {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    max-width: 600px;
+  }
+  .header-meta {
+    margin-top: 24px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .meta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .meta-badge .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .meta-badge .dot.green { background: var(--green); }
+  .meta-badge .dot.amber { background: var(--amber); }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 50px 60px;
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    font-family: var(--font-d);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    min-width: 28px;
+  }
+  .section-title {
+    font-family: var(--font-d);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--off-white);
+    letter-spacing: 0.03em;
+  }
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(201,169,98,0.3), transparent);
+  }
+  .section-wrap { margin-bottom: 60px; }
+
+  /* ── CARD GRID ── */
+  .card-grid { display: grid; gap: 16px; }
+  .card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .card-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+  .card {
+    background: var(--charcoal);
+    border: 1px solid rgba(201,169,98,0.1);
+    border-radius: 4px;
+    padding: 24px 26px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: rgba(201,169,98,0.25); }
+  .card-accent {
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    border-radius: 4px 0 0 4px;
+  }
+  .card-accent.gold { background: var(--gold); }
+  .card-accent.green { background: var(--green); }
+  .card-accent.amber { background: var(--amber); }
+  .card-accent.blue { background: var(--blue); }
+  .card-accent.red { background: var(--red); }
+
+  .card-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .card-title {
+    font-family: var(--font-d);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--off-white);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .card-body {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .card-body strong { color: var(--text); font-weight: 400; }
+
+  /* ── STATUS PILLS ── */
+  .status-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10.5px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+  .pill-done { background: rgba(90,158,120,0.15); color: var(--green); border: 1px solid rgba(90,158,120,0.3); }
+  .pill-todo { background: rgba(201,164,90,0.12); color: var(--amber); border: 1px solid rgba(201,164,90,0.3); }
+  .pill-new  { background: rgba(90,127,160,0.15); color: var(--blue); border: 1px solid rgba(90,127,160,0.3); }
+  .pill-attn { background: rgba(184,92,92,0.15); color: var(--red); border: 1px solid rgba(184,92,92,0.3); }
+  .pill::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+  /* ── CODE BLOCKS ── */
+  .code-block {
+    background: #111009;
+    border: 1px solid rgba(201,169,98,0.12);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin-top: 14px;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 11.5px;
+    line-height: 1.7;
+    color: #c5c0b0;
+    overflow-x: auto;
+    position: relative;
+  }
+  .code-block .comment { color: rgba(201,169,98,0.55); }
+  .code-block .tag { color: #7ab8d4; }
+  .code-block .attr { color: #c9a962; }
+  .code-block .val { color: #a8c880; }
+  .code-label {
+    display: inline-block;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,169,98,0.1);
+    border: 1px solid rgba(201,169,98,0.2);
+    border-radius: 2px;
+    padding: 2px 8px;
+    margin-bottom: 10px;
+  }
+
+  /* ── TABLE ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  .data-table th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(201,169,98,0.2);
+  }
+  .data-table td {
+    padding: 11px 14px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--faint);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .data-table td strong { color: var(--text); font-weight: 400; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--faint);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li .check {
+    flex-shrink: 0;
+    width: 16px; height: 16px;
+    border-radius: 2px;
+    border: 1px solid;
+    margin-top: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px;
+  }
+  .check-done { border-color: var(--green); color: var(--green); background: rgba(90,158,120,0.1); }
+  .check-todo { border-color: var(--amber); color: transparent; }
+  .check-new  { border-color: var(--blue); color: var(--blue); background: rgba(90,127,160,0.1); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,169,98,0.15), transparent);
+    margin: 50px 0;
+  }
+
+  /* ── KEYWORD TABLE ── */
+  .kw-priority {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .kw-high { background: rgba(184,92,92,0.2); color: #d47a7a; }
+  .kw-mid  { background: rgba(201,164,90,0.15); color: var(--amber); }
+  .kw-local { background: rgba(90,127,160,0.2); color: #85aac8; }
+  .kw-ai   { background: rgba(150,100,200,0.2); color: #b899e0; }
+
+  /* ── HORIZON TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  .timeline-item { position: relative; margin-bottom: 28px; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px; top: 6px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    background: var(--dark);
+  }
+  .timeline-year {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 5px;
+  }
+  .timeline-head {
+    font-family: var(--font-d);
+    font-size: 16px;
+    color: var(--off-white);
+    margin-bottom: 6px;
+  }
+  .timeline-body {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--charcoal);
+    border-top: 1px solid rgba(201,169,98,0.1);
+    padding: 28px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-text {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .footer-text strong { color: var(--gold); font-weight: 400; }
+  .footer-badge {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    border: 1px solid rgba(184,92,92,0.4);
+    padding: 5px 14px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 960px) {
+    .header { padding: 30px 24px; }
+    .container { padding: 36px 24px; }
+    .card-grid-2, .card-grid-3, .card-grid-4 { grid-template-columns: 1fr; }
+    .header-title { font-size: 30px; }
+    .footer { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Grand Park Law Group, A.P.C. — Internal Reference</div>
+  <h1 class="header-title">SEO <em>&amp; Digital Visibility</em> Master Package</h1>
+  <p class="header-sub">Comprehensive meta, Open Graph, schema markup, AI search readiness, KPI framework, and forward-looking search strategy — grandparklaw.com</p>
+  <div class="header-meta">
+    <span class="meta-badge"><span class="dot green"></span>v2.0 — March 2026</span>
+    <span class="meta-badge"><span class="dot"></span>All page templates covered</span>
+    <span class="meta-badge"><span class="dot amber"></span>Placeholders require verification</span>
+    <span class="meta-badge"><span class="dot"></span>Attorney review required for FAQ content</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════════════════════════
+       SECTION 1 — IMPLEMENTATION STATUS
+  ══════════════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Implementation Status &amp; Deployment Checklist</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <div class="card-accent gold"></div>
+        <div class="card-label">Core Meta</div>
+        <div class="card-title">Title, Description &amp; Canonical</div>
+        <ul class="checklist">
+          <li><span class="check check-done">✓</span>Homepage title tag (current)</li>
+          <li><span class="check check-done">✓</span>Homepage meta description (current)</li>
+          <li><span class="check check-done">✓</span>Canonical URL set</li>
+          <li><span class="check check-todo"></span>Title template applied to all practice pages</li>
+          <li><span class="check check-todo"></span>Title template applied to all attorney bio pages</li>
+          <li><span class="check check-todo"></span>Title template applied to all Insights articles</li>
+          <li><span class="check check-todo"></span>Canonical tags on all non-homepage pages</li>
+          <li><span class="check check-todo"></span>hreflang alternate added for grandparklawgroup.com</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-accent blue"></div>
+        <div class="card-label">Open Graph &amp; Social</div>
+        <div class="card-title">OG Tags, Twitter Cards, LinkedIn</div>
+        <ul class="checklist">
+          <li><span class="check check-done">✓</span>Homepage OG tags (current — basic)</li>
+          <li><span class="check check-todo"></span>OG image created (1200×630, branded)</li>
+          <li><span class="check check-todo"></span>Square OG fallback image (1080×1080)</li>
+          <li><span class="check check-todo"></span>Twitter/X card with @GrandParkLaw handle</li>
+          <li><span class="check check-todo"></span>og:profile type on each attorney bio page</li>
+          <li><span class="check check-todo"></span>og:article type on each Insights post</li>
+          <li><span class="check check-todo"></span>LinkedIn company page ID linked</li>
+          <li><span class="check check-todo"></span>OG tags validated via Meta Sharing Debugger</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-accent green"></div>
+        <div class="card-label">Schema.org JSON-LD</div>
+        <div class="card-title">Structured Data Markup</div>
+        <ul class="checklist">
+          <li><span class="check check-done">✓</span>LegalService schema (homepage — basic)</li>
+          <li><span class="check check-todo"></span>Full Organization @graph with @id (upgrade)</li>
+          <li><span class="check check-todo"></span>LocalBusiness schema — LA office</li>
+          <li><span class="check check-todo"></span>LocalBusiness schema — Chicago office</li>
+          <li><span class="check check-todo"></span>FAQPage schema on homepage + practice pages</li>
+          <li><span class="check check-todo"></span>Attorney Person schema on each bio page</li>
+          <li><span class="check check-todo"></span>Service schema on each practice area page</li>
+          <li><span class="check check-todo"></span>Article schema on each Insights post</li>
+          <li><span class="check check-todo"></span>BreadcrumbList on all non-root pages</li>
+          <li><span class="check check-todo"></span>Speakable schema on homepage + practices</li>
+          <li><span class="check check-todo"></span>WebSite schema with SearchAction</li>
+          <li><span class="check check-todo"></span>AggregateRating with verified review count</li>
+          <li><span class="check check-new">N</span>HowTo schema for process-based pages</li>
+          <li><span class="check check-new">N</span>Event schema for CLE / webinars</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-label">Technical &amp; Performance</div>
+        <div class="card-title">Core Web Vitals &amp; Infrastructure</div>
+        <ul class="checklist">
+          <li><span class="check check-done">✓</span>HTTPS enforced (Cloudflare)</li>
+          <li><span class="check check-done">✓</span>Font preconnect hints</li>
+          <li><span class="check check-todo"></span>Hero image preload (fetchpriority="high")</li>
+          <li><span class="check check-todo"></span>Critical CSS inlined (above-fold only)</li>
+          <li><span class="check check-todo"></span>DNS prefetch for GTM, GA, social pixels</li>
+          <li><span class="check check-todo"></span>WebP hero image created for LCP</li>
+          <li><span class="check check-todo"></span>Google Tag Manager container configured</li>
+          <li><span class="check check-todo"></span>GSC verification meta tag installed</li>
+          <li><span class="check check-todo"></span>Bing WMT verification meta tag installed</li>
+          <li><span class="check check-todo"></span>XML sitemap created &amp; submitted (GSC + Bing)</li>
+          <li><span class="check check-todo"></span>robots.txt updated with AI crawler directives</li>
+          <li><span class="check check-new">N</span>/llms.txt file created at domain root</li>
+          <li><span class="check check-todo"></span>PWA manifest (site.webmanifest) created</li>
+          <li><span class="check check-todo"></span>All Core Web Vitals passing "Good" threshold</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:16px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)"><span class="check check-done" style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;font-size:8px;">✓</span> Currently implemented</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)"><span class="check check-todo" style="display:inline-flex;width:14px;height:14px;"></span> Pending deployment</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)"><span class="check check-new" style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;font-size:8px;">N</span> New / forward-looking addition</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 2 — TITLE & DESCRIPTION TEMPLATES
+  ══════════════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Title &amp; Description Templates</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <div class="card-accent gold"></div>
+        <div class="code-label">Homepage</div>
+        <div class="code-block">
+<span class="tag">&lt;title&gt;</span>Grand Park Law Group — Premier Trial Attorneys | Los Angeles &amp; Chicago<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"description"</span>
+  <span class="attr">content</span>=<span class="val">"Grand Park Law Group, A.P.C. fights for individuals and businesses in personal injury, employment, civil rights, medical malpractice, and entertainment law. Offices in Los Angeles and Chicago. Free consultation."</span><span class="tag">&gt;</span>
+        </div>
+        <div class="card-body" style="margin-top:10px;">
+          <strong>Title:</strong> 74 chars (under 65 preferred — consider shortening) &nbsp;|&nbsp; <strong>Description:</strong> 155 chars ✓
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent blue"></div>
+        <div class="code-label">Practice Area Page</div>
+        <div class="code-block">
+<span class="comment">/* Formula: [Practice] Attorneys in [City] | GPLG */</span>
+<span class="tag">&lt;title&gt;</span>Los Angeles Personal Injury Attorneys | Grand Park Law Group<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"description"</span>
+  <span class="attr">content</span>=<span class="val">"[Firm] personal injury attorneys recover maximum compensation for accident victims in Los Angeles and across California. Free case evaluation. No fee unless we win."</span><span class="tag">&gt;</span>
+        </div>
+        <div class="card-body" style="margin-top:10px;">Include city + practice area in title. End description with action ("No fee unless we win" or "Free consultation").
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent green"></div>
+        <div class="code-label">Attorney Bio Page</div>
+        <div class="code-block">
+<span class="comment">/* Formula: [Name], [Title] | Grand Park Law Group */</span>
+<span class="tag">&lt;title&gt;</span>[Full Name], [Partner/Associate] | Grand Park Law Group<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"description"</span>
+  <span class="attr">content</span>=<span class="val">"[Name] is a [Title] at Grand Park Law Group specializing in [areas]. [One compelling result sentence]. [City]. Admitted [State(s)]."</span><span class="tag">&gt;</span>
+        </div>
+        <div class="card-body" style="margin-top:10px;">Include full name, title, primary practice areas, and bar admissions. Helps Google surface attorney in entity searches.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="code-label">Insights / Article</div>
+        <div class="code-block">
+<span class="comment">/* Formula: [Article Title] | Grand Park Law Group */</span>
+<span class="tag">&lt;title&gt;</span>[Article Title — max 55 chars] | Grand Park Law Group<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"description"</span>
+  <span class="attr">content</span>=<span class="val">"[Answer the likely search question in the first sentence. Include jurisdiction (California / Illinois) where applicable. 120–155 chars total.]"</span><span class="tag">&gt;</span>
+        </div>
+        <div class="card-body" style="margin-top:10px;">Article meta descriptions should read as direct answers, not teasers. AI Overviews pull from meta descriptions for sourcing.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 3 — SCHEMA TYPES BY PAGE
+  ══════════════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Schema.org Markup — Page-by-Page Matrix</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-accent gold"></div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Page Type</th>
+            <th>Schema Types Required</th>
+            <th>Rich Result Unlocked</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Homepage</strong></td>
+            <td>Organization, LegalService, WebSite (SearchAction), WebPage, LocalBusiness ×2, FAQPage, Speakable</td>
+            <td>Sitelinks Searchbox, FAQ, Knowledge Panel, Local Pack</td>
+            <td><span class="kw-high">Critical</span></td>
+          </tr>
+          <tr>
+            <td><strong>Practice Area Hub</strong></td>
+            <td>Service, BreadcrumbList, FAQPage, Speakable</td>
+            <td>FAQ rich result, featured snippet, People Also Ask</td>
+            <td><span class="kw-high">Critical</span></td>
+          </tr>
+          <tr>
+            <td><strong>Practice Sub-page</strong></td>
+            <td>Service, BreadcrumbList, FAQPage, HowTo (if process page)</td>
+            <td>FAQ, HowTo carousel, featured snippet</td>
+            <td><span class="kw-high">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Attorney Bio</strong></td>
+            <td>Person + Attorney, BreadcrumbList, ProfilePage</td>
+            <td>Knowledge panel, rich snippet for attorney name</td>
+            <td><span class="kw-high">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Insights Article</strong></td>
+            <td>Article (or LegalScholarlyArticle), BreadcrumbList, Speakable</td>
+            <td>Article rich result, author byline, featured snippet</td>
+            <td><span class="kw-mid">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>Contact Page</strong></td>
+            <td>LocalBusiness ×2, ContactPage, BreadcrumbList</td>
+            <td>Local Pack, Knowledge Panel phone/hours</td>
+            <td><span class="kw-high">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>About Page</strong></td>
+            <td>Organization, AboutPage, BreadcrumbList</td>
+            <td>Entity disambiguation, Knowledge Panel</td>
+            <td><span class="kw-mid">Medium</span></td>
+          </tr>
+          <tr>
+            <td><strong>Events / CLE</strong></td>
+            <td>Event, VirtualLocation or Place, Offer</td>
+            <td>Event rich result in SERPs</td>
+            <td><span class="kw-local">Local</span></td>
+          </tr>
+          <tr>
+            <td><strong>Client Portal</strong></td>
+            <td><em>None — noindex/nofollow</em></td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 4 — KEYWORD TARGETS
+  ══════════════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Priority Keyword Targets</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-accent gold"></div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Intent</th>
+            <th>Target Page</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>personal injury attorney Los Angeles</strong></td>
+            <td>Transactional</td>
+            <td>/practices/personal-injury/</td>
+            <td><span class="kw-high">High Value</span></td>
+          </tr>
+          <tr>
+            <td><strong>wrongful termination lawyer Los Angeles</strong></td>
+            <td>Transactional</td>
+            <td>/practices/employment/wrongful-termination/</td>
+            <td><span class="kw-high">High Value</span></td>
+          </tr>
+          <tr>
+            <td><strong>medical malpractice lawyer Los Angeles</strong></td>
+            <td>Transactional</td>
+            <td>/practices/medical-malpractice/</td>
+            <td><span class="kw-high">High Value</span></td>
+          </tr>
+          <tr>
+            <td><strong>employment lawyer Los Angeles</strong></td>
+            <td>Transactional</td>
+            <td>/practices/employment/</td>
+            <td><span class="kw-high">High Value</span></td>
+          </tr>
+          <tr>
+            <td><strong>civil rights attorney California</strong></td>
+            <td>Transactional</td>
+            <td>/practices/civil-rights/</td>
+            <td><span class="kw-high">High Value</span></td>
+          </tr>
+          <tr>
+            <td><strong>entertainment lawyer Los Angeles</strong></td>
+            <td>Transactional</td>
+            <td>/practices/entertainment-law/</td>
+            <td><span class="kw-mid">Differentiating</span></td>
+          </tr>
+          <tr>
+            <td><strong>Grand Park Law Group</strong></td>
+            <td>Branded/Navigational</td>
+            <td>Homepage</td>
+            <td><span class="kw-high">Branded</span></td>
+          </tr>
+          <tr>
+            <td><strong>personal injury attorney near me</strong></td>
+            <td>Local/Voice</td>
+            <td>/practices/personal-injury/</td>
+            <td><span class="kw-local">Local SEO</span></td>
+          </tr>
+          <tr>
+            <td><strong>personal injury attorney Chicago</strong></td>
+            <td>Transactional</td>
+            <td>/practices/personal-injury/ (+ IL page)</td>
+            <td><span class="kw-local">Chicago Market</span></td>
+          </tr>
+          <tr>
+            <td><strong>can I sue my employer for discrimination California</strong></td>
+            <td>Informational</td>
+            <td>/insights/suing-employer-discrimination-california/</td>
+            <td><span class="kw-ai">AI Overview Target</span></td>
+          </tr>
+          <tr>
+            <td><strong>statute of limitations personal injury California</strong></td>
+            <td>Informational</td>
+            <td>/insights/statute-of-limitations-california/</td>
+            <td><span class="kw-ai">AI Overview Target</span></td>
+          </tr>
+          <tr>
+            <td><strong>how much is my personal injury case worth</strong></td>
+            <td>Informational</td>
+            <td>/insights/personal-injury-case-value/</td>
+            <td><span class="kw-ai">AI Overview Target</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 5 — AI SEARCH READINESS
+  ══════════════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">
+      <span class="section-num">05</span>
+      <h2 class="section-title">AI Search &amp; Forward-Looking Readiness</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="card-grid card-grid-3">
+      <div class="card">
+        <div class="card-accent blue"></div>
+        <div class="card-label">Google AI Overviews</div>
+        <div class="card-title">SGE / Gemini Integration</div>
+        <div class="card-body">
+          AI Overviews synthesize answers from authoritative sources. GPLG must signal authority through <strong>E-E-A-T</strong>, structured FAQ/HowTo markup, and direct-answer paragraph openings.<br><br>
+          Direct-answer format: <strong>Lead every practice page section with a 40–60 word answer</strong> to the most likely search query. Structure as: Definition → Context → GPLG-specific action.<br><br>
+          Target: appear as a cited source in AI Overviews for California employment and personal injury queries.
+        </div>
+        <div class="status-row">
+          <span class="pill pill-todo">FAQPage schema</span>
+          <span class="pill pill-todo">HowTo schema</span>
+          <span class="pill pill-new">Direct-answer content</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent green"></div>
+        <div class="card-label">Voice &amp; Ambient Search</div>
+        <div class="card-title">Siri, Alexa, Google Assistant</div>
+        <div class="card-body">
+          Voice queries are <strong>conversational, longer, and question-based.</strong> GPLG must target queries like "who is the best personal injury lawyer in LA" and "what should I do after a car accident."<br><br>
+          Speakable schema (Section 9H) flags which content blocks should be read aloud. Critical selectors: <strong>.hero-headline</strong>, <strong>.practice-area-intro</strong>, <strong>.contact-callout</strong>.<br><br>
+          Optimized for wearable/ambient devices by 2027 (Apple Vision Pro, smart home hubs).
+        </div>
+        <div class="status-row">
+          <span class="pill pill-new">Speakable schema</span>
+          <span class="pill pill-todo">Conversational content</span>
+          <span class="pill pill-new">Local action schema</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-label">Perplexity / ChatGPT Search</div>
+        <div class="card-title">LLM-Based Search Engines</div>
+        <div class="card-body">
+          ChatGPT Search, Perplexity, and Bing Copilot pull from the live web and cite sources. GPLG can appear as a citation by <strong>publishing authoritative long-form articles</strong> on specific legal topics.<br><br>
+          <strong>/llms.txt</strong> (new 2025 standard) signals to LLM crawlers which pages are canonical for factual queries about the firm.<br><br>
+          AI training crawlers (GPTBot, ClaudeBot) blocked via robots.txt to prevent training data extraction without commercial terms.
+        </div>
+        <div class="status-row">
+          <span class="pill pill-new">llms.txt</span>
+          <span class="pill pill-todo">robots.txt update</span>
+          <span class="pill pill-todo">Authority articles</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent gold"></div>
+        <div class="card-label">Entity SEO</div>
+        <div class="card-title">Knowledge Graph &amp; Entity Signals</div>
+        <div class="card-body">
+          Google's Knowledge Graph treats Grand Park Law Group, its attorneys, and its practice areas as <strong>named entities</strong>. sameAs links to authoritative directories (Avvo, Martindale, State Bar, Justia) establish entity identity.<br><br>
+          Goal: trigger a Knowledge Panel for branded searches. Requirements: consistent NAP across 15+ directories, Wikipedia/Wikidata entry (when eligible), and attorney social profile completions.
+        </div>
+        <div class="status-row">
+          <span class="pill pill-todo">Directory citations ×15</span>
+          <span class="pill pill-todo">sameAs links in schema</span>
+          <span class="pill pill-new">Wikidata entity</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent red"></div>
+        <div class="card-label">E-E-A-T Signals</div>
+        <div class="card-title">Experience · Expertise · Authority · Trust</div>
+        <div class="card-body">
+          YMYL (Your Money, Your Life) classification means Google holds legal content to the <strong>highest quality standards.</strong> Every Insights article must be author-attributed, have a law-school-credentialed byline, and link to the attorney's bio.<br><br>
+          Add case result summaries (ethically compliant), award badges (Super Lawyers, Best Lawyers), and news/press coverage links to build E-E-A-T signals.
+        </div>
+        <div class="status-row">
+          <span class="pill pill-todo">Author bylines</span>
+          <span class="pill pill-todo">Case results page</span>
+          <span class="pill pill-todo">Press mentions</span>
+          <span class="pill pill-todo">Award markup</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent blue"></div>
+        <div class="card-label">2026–2028 Horizon</div>
+        <div class="card-title">Emerging Search Technologies</div>
+        <div class="card-body">
+          <strong>Multimodal search</strong> (image + voice + text) will require attorney headshots optimized with alt text and structured image metadata. <strong>AI agent search</strong> (autonomous agents booking consultations) will require machine-readable action endpoints.<br><br>
+          Consider <strong>legal AI assistant integrations</strong> (Harvey, Clio, LexisNexis AI) as referral and citation channels distinct from traditional SEO.
+        </div>
+        <div class="status-row">
+          <span class="pill pill-new">Image metadata</span>
+          <span class="pill pill-new">Action endpoints</span>
+          <span class="pill pill-new">AI platform profiles</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 6 — KPI DASHBOARD
+  ══════════════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">
+      <span class="section-num">06</span>
+      <h2 class="section-title">KPI Framework — 12-Month Targets</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="card-grid card-grid-4">
+      <div class="card">
+        <div class="card-accent gold"></div>
+        <div class="card-label">Tier 1 · Visibility</div>
+        <div class="card-title">Organic Search</div>
+        <div class="card-body">
+          Impressions: <strong>+200% YoY</strong><br>
+          Clicks: <strong>+150% YoY</strong><br>
+          Branded position: <strong>Top 1–2</strong><br>
+          Non-branded position: <strong>Top 10</strong><br>
+          Rich results active: <strong>FAQ + Local + Review</strong><br>
+          Core Web Vitals: <strong>All "Good"</strong>
+        </div>
+        <div style="margin-top:10px;font-size:10.5px;color:var(--muted)">Tool: Google Search Console</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent green"></div>
+        <div class="card-label">Tier 2 · Local</div>
+        <div class="card-title">Google Business Profile</div>
+        <div class="card-body">
+          GBP views: <strong>+100% YoY</strong><br>
+          Direction requests: <strong>+50% YoY</strong><br>
+          Calls from GBP: <strong>+75% YoY</strong><br>
+          Review count: <strong>50+ verified</strong><br>
+          Avg. star rating: <strong>≥ 4.8 ★</strong><br>
+          "Near me" ranking: <strong>Local 3-Pack</strong>
+        </div>
+        <div style="margin-top:10px;font-size:10.5px;color:var(--muted)">Tool: GBP Dashboard / BrightLocal</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent amber"></div>
+        <div class="card-label">Tier 3 · Conversion</div>
+        <div class="card-title">Business Outcomes</div>
+        <div class="card-body">
+          Consult form submissions: <strong>Tracked</strong><br>
+          Phone call conversions: <strong>Tracked (CallRail)</strong><br>
+          Organic-to-consult rate: <strong>≥ 3%</strong><br>
+          Cost-per-organic-lead: <strong>vs. paid baseline</strong><br>
+          Live chat (organic): <strong>Tracked</strong>
+        </div>
+        <div style="margin-top:10px;font-size:10.5px;color:var(--muted)">Tool: GA4 + GTM + CRM</div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent blue"></div>
+        <div class="card-label">Tier 4 · AI Visibility</div>
+        <div class="card-title">AI Search Presence</div>
+        <div class="card-body">
+          AI Overview appearances: <strong>Weekly tracking</strong><br>
+          Perplexity citations: <strong>Monthly audit</strong><br>
+          ChatGPT Search referrals: <strong>GA4 source</strong><br>
+          Bing Copilot appearances: <strong>Bing WMT</strong><br>
+          Brand in AI answers: <strong>Manual monthly</strong>
+        </div>
+        <div style="margin-top:10px;font-size:10.5px;color:var(--muted)">Emerging — 2026 measurement</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 7 — HORIZON TIMELINE
+  ══════════════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Technology Horizon — Search Evolution Timeline</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <div class="card-accent gold"></div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2025–2026 — Now</div>
+            <div class="timeline-head">AI Overviews &amp; Generative Search Dominance</div>
+            <div class="timeline-body">Google SGE AI Overviews are the new featured snippet. Legal content must lead with direct, citable answers. FAQ and HowTo structured data are the primary rich result levers. E-E-A-T is the determining ranking factor for YMYL legal content.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2026 — Deployment Target</div>
+            <div class="timeline-head">LLM Search Citation Economy</div>
+            <div class="timeline-body">ChatGPT Search, Perplexity, and Copilot become meaningful referral traffic sources. /llms.txt adoption signals preferred pages for AI citation. Brand mentions in AI answers outperform traditional backlinks for trust signals.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2026–2027 — Prepare Now</div>
+            <div class="timeline-head">Voice &amp; Ambient Device Legal Queries</div>
+            <div class="timeline-body">Smart displays, in-car AI assistants, and wearables process conversational legal queries. "Hey Siri, find a personal injury attorney near me" becomes mainstream intake channel. Speakable schema + local action markup required.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2027–2028 — Horizon</div>
+            <div class="timeline-head">Agentic AI &amp; Autonomous Search</div>
+            <div class="timeline-body">AI agents (OpenAI Operator, Google Jarvis) autonomously evaluate and book legal consultations on behalf of users. Machine-readable action endpoints, booking APIs, and structured availability data become SEO assets. Schema.org/Action and API-first presence matter.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-accent blue"></div>
+        <div class="card-label">Citation Directory Priorities</div>
+        <div class="card-title">NAP Consistency — 15 Required Directories</div>
+        <table class="data-table" style="margin-top:12px;">
+          <thead>
+            <tr><th>#</th><th>Directory</th><th>Priority</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><strong>Google Business Profile</strong> — both offices</td><td><span class="kw-high">Critical</span></td></tr>
+            <tr><td>2</td><td>Avvo (firm + individual attorneys)</td><td><span class="kw-high">Critical</span></td></tr>
+            <tr><td>3</td><td>Martindale-Hubbell</td><td><span class="kw-high">Critical</span></td></tr>
+            <tr><td>4</td><td>FindLaw</td><td><span class="kw-high">Critical</span></td></tr>
+            <tr><td>5</td><td>Justia</td><td><span class="kw-high">Critical</span></td></tr>
+            <tr><td>6</td><td>State Bar of California Profile</td><td><span class="kw-high">Critical</span></td></tr>
+            <tr><td>7</td><td>Illinois ARDC Profile</td><td><span class="kw-high">Critical</span></td></tr>
+            <tr><td>8</td><td>Bing Places (both offices)</td><td><span class="kw-mid">High</span></td></tr>
+            <tr><td>9</td><td>Apple Maps</td><td><span class="kw-mid">High</span></td></tr>
+            <tr><td>10</td><td>Yelp Business Page</td><td><span class="kw-mid">High</span></td></tr>
+            <tr><td>11</td><td>Super Lawyers</td><td><span class="kw-mid">High</span></td></tr>
+            <tr><td>12</td><td>Best Lawyers</td><td><span class="kw-mid">High</span></td></tr>
+            <tr><td>13</td><td>LACBA Member Directory</td><td><span class="kw-local">Local</span></td></tr>
+            <tr><td>14</td><td>Illinois State Bar Directory</td><td><span class="kw-local">Local</span></td></tr>
+            <tr><td>15</td><td>Chambers USA (when eligible)</td><td><span class="kw-local">Prestige</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       FILE REFERENCE
+  ══════════════════════════════════════════ -->
+  <div class="section-wrap" style="margin-bottom:0;">
+    <div class="section-label">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Deliverable Files</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <div class="card-accent gold"></div>
+        <div class="card-label">Primary Deliverable</div>
+        <div class="card-title">gplg-seo-package.html</div>
+        <div class="card-body">
+          The master implementation file. Contains every <strong>head block</strong> — meta tags, OG/Twitter cards, all Schema.org JSON-LD blocks, performance hints, GTM snippet, and AI readiness commentary — organized by section (00–11) with full page-type templates as commented blocks.<br><br>
+          Deploy by copying each relevant section into the <strong>&lt;head&gt;</strong> of each 11ty template. Replace all <strong>[BRACKET PLACEHOLDERS]</strong> with verified data before deployment.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent blue"></div>
+        <div class="card-label">Reference Dashboard</div>
+        <div class="card-title">gplg-seo-dashboard.html</div>
+        <div class="card-body">
+          This file. Team-facing visual reference covering implementation status, title/description templates, schema matrix, keyword targets, AI readiness strategy, KPI framework, and technology horizon timeline.<br><br>
+          Use for onboarding, implementation tracking, and quarterly SEO review meetings.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-text">
+    <strong>Grand Park Law Group, A.P.C.</strong> — SEO Master Package v2.0<br>
+    Internal reference document. Confidential. All placeholder values in <strong>[brackets]</strong> require attorney verification before production deployment.<br>
+    Schema validation: <strong>search.google.com/test/rich-results</strong> &nbsp;|&nbsp; <strong>validator.schema.org</strong>
+  </div>
+  <div class="footer-badge">⚠ Attorney Review Required</div>
+</div>
+
+</body>
+</html>

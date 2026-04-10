@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║         GRAND PARK LAW GROUP, A.P.C. — MASTER SEO IMPLEMENTATION PACKAGE       ║
+║                       grandparklaw.com | grandparklawgroup.com                  ║
+╠══════════════════════════════════════════════════════════════════════════════════╣
+║  VERSION:    2.0 (2026)                                                         ║
+║  SCOPE:      All page-type templates + global signals                           ║
+║  COVERS:     Meta, OG, Twitter/X, Schema.org, AI-readiness, Voice, Entity       ║
+║  ATTORNEY REVIEW REQUIRED before production deployment                          ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en">
+<head>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 0 — CRITICAL: ENCODING & VIEWPORT (MUST BE FIRST)
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 1 — ROBOTS & CRAWL DIRECTIVES
+     Controls indexing, AI crawlers (2025+), and data scraping bots.
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+
+<!-- Standard search engines -->
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<!-- Google-specific: allow rich snippets and snippet length -->
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<!-- Bing/Microsoft Copilot -->
+<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+<!-- AI training/crawling opt-out (ChatGPT, Anthropic, Google Vertex, Common Crawl) -->
+<!-- NOTE: These block AI training but NOT AI-powered search (e.g., Perplexity, Google AI Overviews) -->
+<!-- RECOMMENDATION: Keep these ABSENT on public-facing pages to allow AI search referrals -->
+<!-- Uncomment only on confidential staff pages -->
+<!-- <meta name="GPTBot" content="noindex"> -->
+<!-- <meta name="ClaudeBot" content="noindex"> -->
+<!-- <meta name="CCBot" content="noindex"> -->
+<!-- <meta name="Google-Extended" content="noindex"> -->
+
+<!-- AIF (AI-accessible format declaration — emerging 2025 standard) -->
+<meta name="ai-content-class" content="legal-services, professional-biography, practice-area">
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 2 — CORE META TAGS
+     ═══════════════════════════════════════════════════════════════════════════════
+
+     TITLE FORMULA:
+       Homepage:      [Tagline] | [Firm Name]
+       Practice Area: [Practice Area] Attorneys in [City] | Grand Park Law Group
+       Attorney Bio:  [Full Name], [Title] | Grand Park Law Group
+       Insights:      [Article Title] | Grand Park Law Group
+       Contact:       Contact Our Attorneys | Grand Park Law Group
+
+     CHARACTER LIMITS:
+       Title:       50–60 chars (hard cut at 65)
+       Description: 120–155 chars (hard cut at 165)
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+
+<!-- ─── HOMEPAGE ──────────────────────────────────────────────────────────────── -->
+<title>Grand Park Law Group — Premier Trial Attorneys | Los Angeles &amp; Chicago</title>
+<meta name="description" content="Grand Park Law Group, A.P.C. fights for individuals and businesses in personal injury, employment, civil rights, medical malpractice, and entertainment law. Offices in Los Angeles and Chicago. Free consultation.">
+
+<!-- ─── PRACTICE AREA PAGE (use as template, swap values) ─────────────────────
+<title>Los Angeles Personal Injury Attorneys | Grand Park Law Group</title>
+<meta name="description" content="Grand Park Law Group's personal injury attorneys recover maximum compensation for accident victims in Los Angeles and across California. Free case evaluation. No fee unless we win.">
+──────────────────────────────────────────────────────────────────────────────── -->
+
+<!-- ─── ATTORNEY BIO PAGE (use as template, swap values) ──────────────────────
+<title>[Attorney Full Name], [Title] | Grand Park Law Group</title>
+<meta name="description" content="[Attorney Name] is a [Title] at Grand Park Law Group specializing in [practice areas]. [One compelling sentence about results or experience]. [Office city]. [Bar admission(s)].">
+──────────────────────────────────────────────────────────────────────────────── -->
+
+<!-- ─── INSIGHTS / BLOG POST (use as template, swap values) ───────────────────
+<title>[Article Title] | Grand Park Law Group Insights</title>
+<meta name="description" content="[2-sentence summary of the article's key insight, referencing the legal topic, jurisdiction if applicable, and why it matters to the reader.]">
+──────────────────────────────────────────────────────────────────────────────── -->
+
+<!-- Canonical URL (no trailing slash for consistency; match Cloudflare Pages config) -->
+<link rel="canonical" href="https://grandparklaw.com/">
+
+<!-- Alternate domains (prevents duplicate content between www / non-www) -->
+<link rel="alternate" href="https://grandparklaw.com/" hreflang="en-us">
+<link rel="alternate" href="https://grandparklawgroup.com/" hreflang="en-us">
+
+<!-- Language/Region -->
+<meta name="language" content="en-US">
+<meta name="geo.region" content="US-CA">
+<meta name="geo.placename" content="Los Angeles, California">
+<meta name="geo.position" content="34.0522342;-118.2436849">
+<meta name="ICBM" content="34.0522342, -118.2436849">
+
+<!-- Author / Publisher attribution -->
+<meta name="author" content="Grand Park Law Group, A.P.C.">
+<meta name="publisher" content="Grand Park Law Group, A.P.C.">
+<meta name="copyright" content="© 2024–2026 Grand Park Law Group, A.P.C. All rights reserved.">
+
+<!-- Keyword signals (secondary, but useful for Bing and entity disambiguation) -->
+<meta name="keywords" content="personal injury attorney Los Angeles, employment lawyer Los Angeles, civil rights attorney California, medical malpractice lawyer, entertainment attorney Los Angeles, wrongful termination lawyer, Grand Park Law Group">
+
+<!-- Revisit / freshness signals -->
+<meta name="revisit-after" content="7 days">
+
+<!-- Rating (safe-search classification) -->
+<meta name="rating" content="general">
+
+<!-- Classification -->
+<meta name="category" content="Legal Services">
+<meta name="classification" content="Legal, Attorney, Law Firm">
+<meta name="subject" content="Legal Services — Plaintiff-Side Litigation">
+
+<!-- Contact metadata (emergent voice/AI signal) -->
+<meta name="contact" content="https://grandparklaw.com/contact">
+<meta name="reply-to" content="info@grandparklaw.com">
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 3 — OPEN GRAPH (Facebook, LinkedIn, WhatsApp, Slack, iMessage)
+     ═══════════════════════════════════════════════════════════════════════════════
+
+     OG IMAGE SPECS:
+       Minimum: 1200 × 630 px (1.91:1 ratio)
+       Recommended: 1200 × 630 at 72dpi, < 8MB
+       Firm images: Use champagne gold + charcoal branded cards
+       Attorney images: Professional headshot on branded background
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+
+<!-- Type variants:
+     Homepage / About / Contact = "website"
+     Practice area pages        = "website"
+     Attorney bio pages         = "profile"
+     Insights articles          = "article"
+     Events / CLE               = "event" (non-standard, still parsed by most platforms)
+-->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Grand Park Law Group">
+<meta property="og:locale" content="en_US">
+
+<!-- ─── HOMEPAGE ──────────────────────────────────────────────────────────────── -->
+<meta property="og:title" content="Grand Park Law Group — Premier Trial Attorneys">
+<meta property="og:description" content="Dedicated advocates for individuals and businesses in personal injury, employment, civil rights, medical malpractice, and entertainment law. Offices in Los Angeles and Chicago.">
+<meta property="og:url" content="https://grandparklaw.com/">
+<meta property="og:image" content="https://grandparklaw.com/assets/images/og/og-homepage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Grand Park Law Group — Los Angeles and Chicago Trial Attorneys">
+<meta property="og:image:type" content="image/jpeg">
+
+<!-- Optional: second image for fallback -->
+<meta property="og:image" content="https://grandparklaw.com/assets/images/og/og-homepage-square.jpg">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Grand Park Law Group logo mark on champagne gold background">
+<meta property="og:image:type" content="image/jpeg">
+
+<!-- Contact signals -->
+<meta property="og:phone_number" content="+18886294754">
+<meta property="og:email" content="info@grandparklaw.com">
+<meta property="og:street-address" content="11835 W Olympic Blvd, Suite 870E">
+<meta property="og:locality" content="Los Angeles">
+<meta property="og:region" content="CA">
+<meta property="og:postal-code" content="90064">
+<meta property="og:country-name" content="United States">
+
+<!-- ─── ATTORNEY BIO PAGE OG ADDITIONS (swap in for bio pages) ────────────────
+<meta property="og:type" content="profile">
+<meta property="profile:first_name" content="[First Name]">
+<meta property="profile:last_name" content="[Last Name]">
+<meta property="profile:username" content="[attorney-slug]">
+──────────────────────────────────────────────────────────────────────────────── -->
+
+<!-- ─── ARTICLE / INSIGHTS PAGE OG ADDITIONS (swap in for blog posts) ─────────
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="[ISO 8601 date — e.g., 2026-03-01T09:00:00-08:00]">
+<meta property="article:modified_time" content="[ISO 8601 date]">
+<meta property="article:author" content="https://grandparklaw.com/professionals/[slug]">
+<meta property="article:section" content="[Legal Category — e.g., Employment Law]">
+<meta property="article:tag" content="[tag1]">
+<meta property="article:tag" content="[tag2]">
+<meta property="article:tag" content="[tag3]">
+──────────────────────────────────────────────────────────────────────────────── -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 4 — TWITTER / X CARDS
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+
+<!-- Card type: use "summary_large_image" for all content pages -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@GrandParkLaw">
+<meta name="twitter:creator" content="@GrandParkLaw">
+
+<meta name="twitter:title" content="Grand Park Law Group — Premier Trial Attorneys">
+<meta name="twitter:description" content="Dedicated advocates in personal injury, employment, civil rights, medical malpractice, and entertainment law. Los Angeles & Chicago.">
+<meta name="twitter:image" content="https://grandparklaw.com/assets/images/og/og-homepage.jpg">
+<meta name="twitter:image:alt" content="Grand Park Law Group — Trial Attorneys in Los Angeles and Chicago">
+
+<!-- Optional: Twitter App Cards (for future mobile app integration) -->
+<!-- <meta name="twitter:app:name:iphone" content="GPLG Client Portal"> -->
+<!-- <meta name="twitter:app:id:iphone" content="[Apple App Store ID]"> -->
+<!-- <meta name="twitter:app:name:googleplay" content="GPLG Client Portal"> -->
+<!-- <meta name="twitter:app:id:googleplay" content="[Google Play ID]"> -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 5 — LINKEDIN / MICROSOFT SHARE SIGNALS
+     LinkedIn uses OG tags but also reads these supplemental tags:
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<meta property="linkedin:owner" content="[LinkedIn Company Page ID — obtain from LinkedIn admin]">
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 6 — FAVICON & PWA MANIFEST
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+<link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#c9a962">
+<meta name="msapplication-TileColor" content="#2d2a24">
+<meta name="msapplication-TileImage" content="/assets/images/mstile-144x144.png">
+<meta name="theme-color" content="#2d2a24">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Grand Park Law">
+<meta name="application-name" content="Grand Park Law Group">
+<link rel="manifest" href="/site.webmanifest">
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 7 — PERFORMANCE / CORE WEB VITALS
+     LCP, FID/INP, CLS optimization hints
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+
+<!-- DNS prefetch for third-party origins -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="dns-prefetch" href="//connect.facebook.net">
+<link rel="dns-prefetch" href="//snap.licdn.com">
+
+<!-- Preconnect for critical origins (fonts especially) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Preload: LCP hero image (swap path to actual hero image) -->
+<link rel="preload" as="image" href="/assets/images/hero/homepage-hero-1920.webp" type="image/webp" fetchpriority="high">
+
+<!-- Preload: critical fonts -->
+<link rel="preload" href="https://fonts.gstatic.com/s/cormorantgaramond/v22/co3WmX5slCNuHLi8bLeY9MK7whWMhyjQEl5fqg.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVcBeNP4NjuGObqx1XmO1I4TC1C4G-.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Preload: critical CSS -->
+<link rel="preload" href="/assets/css/design-system.css" as="style">
+<link rel="preload" href="/assets/css/main.css" as="style">
+
+<!-- Module preload (for future JS module architecture) -->
+<!-- <link rel="modulepreload" href="/assets/js/main.js"> -->
+
+<!-- Prefetch: pages likely to be visited next (navigation pattern) -->
+<link rel="prefetch" href="/practices/">
+<link rel="prefetch" href="/professionals/">
+<link rel="prefetch" href="/contact/">
+
+<!-- Critical CSS (inline above-the-fold styles for LCP) -->
+<style>
+  /* CRITICAL ABOVE-THE-FOLD CSS — inline for LCP performance */
+  /* Add here only what is needed to render the visible viewport without FOUC */
+  :root {
+    --primary-dark: #1a1915;
+    --primary-charcoal: #2d2a24;
+    --accent-gold: #c9a962;
+    --off-white: #faf9f6;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, sans-serif;
+  }
+  body { margin: 0; background: var(--primary-dark); color: var(--off-white); font-family: var(--font-body); }
+  .header { position: fixed; top: 0; width: 100%; z-index: 100; }
+  .loader { position: fixed; inset: 0; background: var(--primary-dark); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+</style>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 8 — FONTS (DEFERRED, NON-RENDER-BLOCKING)
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 9 — SCHEMA.ORG STRUCTURED DATA
+     ═══════════════════════════════════════════════════════════════════════════════
+     All schemas use JSON-LD (Google-preferred format).
+     Multiple <script type="application/ld+json"> blocks are valid and preferred
+     over a single merged block for maintainability.
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+
+
+<!-- ─── 9A. ORGANIZATION + LEGAL SERVICE (global, every page) ────────────────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LegalService", "ProfessionalService", "Organization"],
+      "@id": "https://grandparklaw.com/#organization",
+      "name": "Grand Park Law Group, A.P.C.",
+      "alternateName": ["Grand Park Law Group", "GPLG", "Grand Park Law"],
+      "legalName": "Grand Park Law Group, A Professional Corporation",
+      "url": "https://grandparklaw.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://grandparklaw.com/assets/images/logo.svg",
+        "width": 240,
+        "height": 60
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://grandparklaw.com/assets/images/og/og-homepage.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "telephone": "+18886294754",
+      "faxNumber": "+13108555555",
+      "email": "info@grandparklaw.com",
+      "description": "Grand Park Law Group, A.P.C. is a plaintiff-side litigation firm with offices in Los Angeles and Chicago representing individuals and businesses in personal injury, medical malpractice, employment disputes, civil rights, entertainment law, real property, and corporate governance matters.",
+      "foundingDate": "2020",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "minValue": 10,
+        "maxValue": 49
+      },
+      "slogan": "Dedicated. Determined. For You.",
+      "priceRange": "Free Consultation — Contingency Fee Available",
+      "currenciesAccepted": "USD",
+      "paymentAccepted": "Cash, Credit Card, Check, Wire Transfer, Payment Plans",
+      "areaServed": [
+        {
+          "@type": "State",
+          "name": "California",
+          "sameAs": "https://www.wikidata.org/wiki/Q99"
+        },
+        {
+          "@type": "State",
+          "name": "Illinois",
+          "sameAs": "https://www.wikidata.org/wiki/Q1204"
+        },
+        {
+          "@type": "City",
+          "name": "Los Angeles",
+          "sameAs": "https://www.wikidata.org/wiki/Q65"
+        },
+        {
+          "@type": "City",
+          "name": "Chicago",
+          "sameAs": "https://www.wikidata.org/wiki/Q1297"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Legal Services",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Personal Injury Litigation"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Medical Malpractice"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Employment Disputes"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Civil Rights Litigation"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Entertainment & Talent Management Law"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Real Property Disputes"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Corporate Governance"}}
+        ]
+      },
+      "knowsAbout": [
+        "Personal Injury Law",
+        "Medical Malpractice",
+        "Employment Law",
+        "Civil Rights Law",
+        "Entertainment Law",
+        "Real Property Law",
+        "Corporate Governance",
+        "Wrongful Termination",
+        "Workplace Discrimination",
+        "Sexual Harassment",
+        "Wage and Hour Claims",
+        "Class Action Litigation",
+        "Premises Liability",
+        "Motor Vehicle Accidents"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Professional License",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "State Bar of California",
+            "sameAs": "https://www.calbar.ca.gov"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Professional License",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Illinois State Bar Association",
+            "sameAs": "https://www.isba.org"
+          }
+        }
+      ],
+      "location": [
+        {
+          "@type": "Place",
+          "@id": "https://grandparklaw.com/#location-losangeles",
+          "name": "Grand Park Law Group — Los Angeles",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "11835 W Olympic Blvd, Suite 870E",
+            "addressLocality": "Los Angeles",
+            "addressRegion": "CA",
+            "postalCode": "90064",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 34.0310,
+            "longitude": -118.4497
+          },
+          "telephone": "+18886294754",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Saturday"],
+              "opens": "10:00",
+              "closes": "14:00"
+            }
+          ]
+        },
+        {
+          "@type": "Place",
+          "@id": "https://grandparklaw.com/#location-chicago",
+          "name": "Grand Park Law Group — Chicago",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "[Chicago Office Street Address — VERIFY AND UPDATE]",
+            "addressLocality": "Chicago",
+            "addressRegion": "IL",
+            "postalCode": "[Chicago ZIP — VERIFY AND UPDATE]",
+            "addressCountry": "US"
+          },
+          "telephone": "+18886294754"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/grandparklaw",
+        "https://twitter.com/grandparklaw",
+        "https://www.instagram.com/grandparklaw",
+        "https://www.facebook.com/grandparklaw",
+        "https://www.avvo.com/law-firm/[avvo-id]",
+        "https://lawyers.findlaw.com/profile/[findlaw-id]",
+        "https://www.martindale.com/los-angeles/california/grand-park-law-group-offices-[id]/",
+        "https://www.justia.com/lawyers/firm/[id]"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+18886294754",
+          "email": "info@grandparklaw.com",
+          "availableLanguage": ["English", "Spanish"],
+          "contactOption": ["TollFree"],
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+18886294754",
+          "description": "Free case consultation",
+          "availableLanguage": ["English", "Spanish"]
+        }
+      ]
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://grandparklaw.com/#website",
+      "url": "https://grandparklaw.com",
+      "name": "Grand Park Law Group",
+      "publisher": {"@id": "https://grandparklaw.com/#organization"},
+      "inLanguage": "en-US",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://grandparklaw.com/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      ]
+    },
+
+    {
+      "@type": "WebPage",
+      "@id": "https://grandparklaw.com/#webpage",
+      "url": "https://grandparklaw.com/",
+      "name": "Grand Park Law Group — Premier Trial Attorneys | Los Angeles & Chicago",
+      "isPartOf": {"@id": "https://grandparklaw.com/#website"},
+      "about": {"@id": "https://grandparklaw.com/#organization"},
+      "description": "Grand Park Law Group, A.P.C. fights for individuals and businesses in personal injury, employment, civil rights, medical malpractice, and entertainment law across California and Illinois.",
+      "inLanguage": "en-US",
+      "datePublished": "2023-01-01",
+      "dateModified": "2026-03-01",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://grandparklaw.com/"
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ─── 9B. LOCAL BUSINESS — LA OFFICE (boosts Google Maps / Local Pack) ─────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "LegalService", "Attorney"],
+  "@id": "https://grandparklaw.com/#localbusiness-la",
+  "name": "Grand Park Law Group, A.P.C.",
+  "image": [
+    "https://grandparklaw.com/assets/images/office/la-office-exterior.jpg",
+    "https://grandparklaw.com/assets/images/office/la-office-lobby.jpg"
+  ],
+  "url": "https://grandparklaw.com",
+  "telephone": "+18886294754",
+  "email": "info@grandparklaw.com",
+  "priceRange": "Free Consultation",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "11835 W Olympic Blvd, Suite 870E",
+    "addressLocality": "Los Angeles",
+    "addressRegion": "CA",
+    "postalCode": "90064",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 34.0310,
+    "longitude": -118.4497
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "10:00",
+      "closes": "14:00"
+    }
+  ],
+  "servesCuisine": null,
+  "hasMap": "https://maps.google.com/?q=11835+W+Olympic+Blvd+Suite+870E+Los+Angeles+CA+90064",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "[VERIFIED COUNT — update from Google/Avvo]",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "[Verified Reviewer Name — use real reviews only]"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "[Verified review text from Google or Avvo — do not fabricate]",
+      "datePublished": "[ISO date]"
+    }
+  ]
+}
+</script>
+
+
+<!-- ─── 9C. FAQ SCHEMA — HOMEPAGE / PRACTICE PAGES (triggers FAQ rich result) ─── -->
+<!-- NOTE: Use on practice area pages; swap questions per practice area -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does it cost to hire Grand Park Law Group?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Grand Park Law Group offers free initial consultations and handles most personal injury and employment cases on a contingency fee basis, meaning you pay no attorney fees unless we win your case. Call (888) 629-GPLG or visit grandparklaw.com/contact to schedule your free consultation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas of law does Grand Park Law Group handle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Grand Park Law Group, A.P.C. handles personal injury, medical malpractice, employment disputes (including wrongful termination and workplace discrimination), civil rights violations, entertainment and talent management law, real property disputes, and corporate governance matters. The firm has offices in Los Angeles, California and Chicago, Illinois."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are Grand Park Law Group's offices located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Grand Park Law Group has offices in Los Angeles, California (11835 W Olympic Blvd, Suite 870E, Los Angeles, CA 90064) and Chicago, Illinois. The firm serves clients throughout California and Illinois, and handles federal matters nationally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do I have to file a personal injury lawsuit in California?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In California, the statute of limitations for most personal injury claims is two (2) years from the date of injury under California Code of Civil Procedure § 335.1. Exceptions apply for claims against government entities (6 months to file an administrative claim), medical malpractice (3 years from injury or 1 year from discovery), and claims involving minors. Time limits differ in Illinois. Contact Grand Park Law Group immediately to protect your rights — delay can result in losing your claim entirely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the statute of limitations for employment claims in California?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Employment claim deadlines in California vary by claim type. DFEH/CRD discrimination and harassment complaints must generally be filed within three (3) years of the last act of discrimination. EEOC charges must be filed within 300 days. Wrongful termination claims may have different deadlines depending on the theory. Wage and hour claims have a three-year statute for statutory violations and four years for UCL claims. Contact an attorney promptly after any adverse employment action."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Grand Park Law Group handle cases outside California?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Grand Park Law Group is licensed in California and Illinois and handles matters in those jurisdictions. For federal matters, the firm may appear in federal courts consistent with applicable pro hac vice and admission rules. Contact the firm directly to discuss whether your matter can be handled."
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- ─── 9D. ATTORNEY BIO SCHEMA TEMPLATE ──────────────────────────────────────── -->
+<!-- USAGE: Place on each /professionals/[slug]/ page with attorney-specific data -->
+<!-- Remove from homepage -->
+<!--
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Person", "Attorney"],
+  "@id": "https://grandparklaw.com/professionals/[attorney-slug]/#attorney",
+  "name": "[Attorney Full Legal Name]",
+  "givenName": "[First Name]",
+  "familyName": "[Last Name]",
+  "honorificPrefix": "[Mr./Ms./Dr. — if applicable]",
+  "honorificSuffix": "Esq.",
+  "jobTitle": "[Partner / Associate / Of Counsel / Managing Partner]",
+  "description": "[2–3 sentence bio summary focusing on practice areas, notable results, and bar admissions.]",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://grandparklaw.com/assets/images/attorneys/[slug]-headshot.jpg",
+    "width": 800,
+    "height": 1000
+  },
+  "url": "https://grandparklaw.com/professionals/[attorney-slug]/",
+  "email": "[firstname.lastname]@grandparklaw.com",
+  "telephone": "+18886294754",
+  "worksFor": {
+    "@type": "LegalService",
+    "@id": "https://grandparklaw.com/#organization"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "[Law School Name]",
+      "sameAs": "[Law School Wikipedia or official URL]"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "[Undergraduate Institution]",
+      "sameAs": "[Institution URL]"
+    }
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Bar Admission",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "State Bar of California",
+        "sameAs": "https://www.calbar.ca.gov"
+      },
+      "dateCreated": "[Year of admission]"
+    }
+  ],
+  "knowsAbout": [
+    "[Practice Area 1]",
+    "[Practice Area 2]",
+    "[Practice Area 3]"
+  ],
+  "award": [
+    "[Award or Recognition Name — e.g., Super Lawyers Rising Star 2025]",
+    "[Additional Award]"
+  ],
+  "memberOf": [
+    {
+      "@type": "Organization",
+      "name": "Los Angeles County Bar Association",
+      "sameAs": "https://www.lacba.org"
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/[linkedin-id]",
+    "https://www.avvo.com/attorneys/[avvo-id].html",
+    "https://www.martindale.com/[attorney-id]/"
+  ]
+}
+</script>
+-->
+
+
+<!-- ─── 9E. PRACTICE AREA PAGE SCHEMA TEMPLATE ───────────────────────────────── -->
+<!-- USAGE: Swap in on each /practices/[slug]/ page -->
+<!--
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://grandparklaw.com/practices/[slug]/#service",
+  "name": "[Practice Area Full Name — e.g., Personal Injury Litigation]",
+  "alternateName": "[Common alternate term — e.g., Accident Attorney]",
+  "serviceType": "[Practice Area — e.g., Personal Injury Law]",
+  "provider": {
+    "@type": "LegalService",
+    "@id": "https://grandparklaw.com/#organization"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "[California / Illinois]"
+  },
+  "description": "[2–3 sentence description of this practice area at GPLG, outcomes pursued, types of clients served.]",
+  "url": "https://grandparklaw.com/practices/[slug]/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Free initial consultation"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "[Practice Area] Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "[Sub-service 1]"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "[Sub-service 2]"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "[Sub-service 3]"}}
+    ]
+  }
+}
+</script>
+-->
+
+
+<!-- ─── 9F. INSIGHTS / ARTICLE SCHEMA TEMPLATE ────────────────────────────────── -->
+<!-- USAGE: Use on each /insights/[slug]/ page -->
+<!--
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://grandparklaw.com/insights/[slug]/#article",
+  "headline": "[Article title — 60 chars max]",
+  "description": "[2–3 sentence summary of the article]",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://grandparklaw.com/assets/images/insights/[slug]-og.jpg",
+    "width": 1200,
+    "height": 630
+  },
+  "url": "https://grandparklaw.com/insights/[slug]/",
+  "datePublished": "[ISO 8601 date]",
+  "dateModified": "[ISO 8601 date]",
+  "author": {
+    "@type": "Person",
+    "@id": "https://grandparklaw.com/professionals/[author-slug]/#attorney",
+    "name": "[Author Full Name]"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://grandparklaw.com/#organization",
+    "name": "Grand Park Law Group, A.P.C.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://grandparklaw.com/assets/images/logo.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://grandparklaw.com/insights/[slug]/"
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "[Primary legal topic — e.g., Employment Discrimination]"
+    }
+  ],
+  "keywords": "[comma-separated keywords]",
+  "articleSection": "[Legal Category — e.g., Employment Law]",
+  "inLanguage": "en-US",
+  "copyrightHolder": {
+    "@id": "https://grandparklaw.com/#organization"
+  },
+  "isAccessibleForFree": true,
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".article-headline", ".article-summary", ".article-intro"]
+  }
+}
+</script>
+-->
+
+
+<!-- ─── 9G. BREADCRUMB SCHEMA (use on all non-homepage pages) ────────────────── -->
+<!--
+Practice Area Example:
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://grandparklaw.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Practices", "item": "https://grandparklaw.com/practices/"},
+    {"@type": "ListItem", "position": 3, "name": "Personal Injury", "item": "https://grandparklaw.com/practices/personal-injury/"}
+  ]
+}
+</script>
+
+Attorney Bio Example:
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://grandparklaw.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Professionals", "item": "https://grandparklaw.com/professionals/"},
+    {"@type": "ListItem", "position": 3, "name": "[Attorney Full Name]", "item": "https://grandparklaw.com/professionals/[slug]/"}
+  ]
+}
+</script>
+-->
+
+
+<!-- ─── 9H. SPEAKABLE SCHEMA — VOICE SEARCH / AI ASSISTANT READINESS ─────────── -->
+<!-- Signals which content blocks should be read aloud by Google Assistant,
+     Siri, Alexa, and AI answer engines. Apply on practice and homepage. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://grandparklaw.com/#speakable",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".hero-headline",
+      ".hero-subheadline",
+      ".practice-area-intro",
+      ".attorney-bio-summary",
+      ".contact-callout",
+      "h1",
+      "h2.section-title"
+    ]
+  },
+  "url": "https://grandparklaw.com/"
+}
+</script>
+
+
+<!-- ─── 9I. HOWTO SCHEMA — LEGAL PROCESS PAGES (emerging format for AI Overviews) -->
+<!-- Use on pages that explain a legal process (e.g., "How to File a DFEH Complaint") -->
+<!--
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to File a Wrongful Termination Lawsuit in California",
+  "description": "A step-by-step overview of the process for pursuing a wrongful termination claim in California, from documentation to resolution.",
+  "totalTime": "PT6M",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "0",
+    "description": "No upfront cost — Grand Park Law Group handles wrongful termination on contingency"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Document Everything",
+      "text": "Preserve emails, texts, performance reviews, witness names, and any communications related to your termination. Do not delete records from company devices.",
+      "url": "https://grandparklaw.com/practices/employment/wrongful-termination/#step-1"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Consult an Employment Attorney",
+      "text": "Schedule a free consultation with an employment lawyer to evaluate your claim, identify applicable statutes of limitations, and assess your damages.",
+      "url": "https://grandparklaw.com/practices/employment/wrongful-termination/#step-2"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "File an Administrative Charge (if required)",
+      "text": "Many discrimination and harassment claims require filing a charge with the California Civil Rights Department (CRD) or the EEOC before pursuing litigation. Deadlines apply.",
+      "url": "https://grandparklaw.com/practices/employment/wrongful-termination/#step-3"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Receive Right-to-Sue Notice",
+      "text": "After the administrative process, obtain a right-to-sue notice, which authorizes you to file a civil lawsuit in court.",
+      "url": "https://grandparklaw.com/practices/employment/wrongful-termination/#step-4"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "File Your Lawsuit",
+      "text": "Your attorney drafts and files the complaint in the appropriate California Superior Court or federal district court and serves the defendant.",
+      "url": "https://grandparklaw.com/practices/employment/wrongful-termination/#step-5"
+    }
+  ]
+}
+</script>
+-->
+
+
+<!-- ─── 9J. EVENT SCHEMA — CLE / WEBINARS / COMMUNITY OUTREACH ───────────────── -->
+<!--
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "[Event Name]",
+  "description": "[Brief event description]",
+  "startDate": "[ISO 8601 datetime]",
+  "endDate": "[ISO 8601 datetime]",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+  "location": [
+    {
+      "@type": "Place",
+      "name": "Grand Park Law Group — Los Angeles Office",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11835 W Olympic Blvd, Suite 870E",
+        "addressLocality": "Los Angeles",
+        "addressRegion": "CA",
+        "postalCode": "90064"
+      }
+    },
+    {
+      "@type": "VirtualLocation",
+      "url": "https://grandparklaw.com/events/[slug]"
+    }
+  ],
+  "organizer": {
+    "@type": "Organization",
+    "@id": "https://grandparklaw.com/#organization"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "[ISO date registration opens]",
+    "url": "https://grandparklaw.com/events/[slug]"
+  }
+}
+</script>
+-->
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 10 — AI SEARCH ENGINE READINESS (2025–2027 horizon)
+     ═══════════════════════════════════════════════════════════════════════════════
+     Emerging signals for Google AI Overviews, Perplexity, ChatGPT Search,
+     Microsoft Copilot, Apple Intelligence, and voice assistant ecosystems.
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+
+<!--
+  AI SEARCH CHECKLIST (implement in content layer, not just head tags):
+
+  ✅ E-E-A-T SIGNALS (Experience · Expertise · Authoritativeness · Trustworthiness)
+     — Author bio pages with credential schema linked to every article
+     — Bar admission dates, law school, awards in Person schema
+     — Case results / settlements (where ethically permissible)
+     — Backlink acquisition from State Bar, LACBA, law reviews, news outlets
+     — HTTPS everywhere (already enforced via Cloudflare)
+
+  ✅ TOPICAL AUTHORITY ARCHITECTURE
+     — Hub-and-spoke content: one authoritative practice area hub page
+       linking to deep sub-topic articles (e.g., /employment/ links to
+       /employment/wrongful-termination/, /employment/discrimination/, etc.)
+     — Minimum 1,200-word practice area pages with structured H2/H3 hierarchy
+     — Internal linking with keyword-rich anchor text
+
+  ✅ AI OVERVIEW OPTIMIZATION (Google SGE)
+     — Direct-answer formatting: Lead paragraphs answer the user's likely question
+       in the first 40–60 words without hedging
+     — Definition + Context + Action structure per section
+     — FAQ blocks on every practice area page (FAQPage schema above)
+     — HowTo schema for process explanations
+     — Tables summarizing key data (statutes of limitations, deadlines by state)
+
+  ✅ VOICE & CONVERSATIONAL SEARCH
+     — Target long-tail conversational queries:
+       "who do I call after a car accident in Los Angeles"
+       "can I sue my employer for wrongful termination in California"
+       "best personal injury lawyer near me"
+     — Speakable schema on key pages (Section 9H above)
+     — Featured snippet optimization: box-format answers for 40–50 word questions
+     — "Near me" local signals: NAP consistency across all directories
+
+  ✅ LLMS.TXT (Emerging standard — create /llms.txt at domain root)
+     Content for /llms.txt:
+     ─────────────────────────────────────────────────────
+     # Grand Park Law Group, A.P.C.
+     > A plaintiff-side litigation firm with offices in Los Angeles and Chicago.
+     > Handling personal injury, employment, civil rights, medical malpractice,
+     > entertainment law, real property, and corporate governance.
+     > Free consultations: (888) 629-GPLG | info@grandparklaw.com
+     > Licensed in California and Illinois.
+
+     ## Allowed
+     /practices/
+     /professionals/
+     /insights/
+     /about/
+     /contact/
+
+     ## Disallowed
+     /portal/
+     /staff-login.html
+     /client-login.html
+     ─────────────────────────────────────────────────────
+
+  ✅ ROBOTS.TXT AI DIRECTIVES (add to existing robots.txt)
+     ─────────────────────────────────────────────────────
+     User-agent: *
+     Allow: /
+     Disallow: /portal/
+     Disallow: /client-login.html
+     Disallow: /staff-login.html
+
+     # Block AI training crawlers (not AI search — keep those allowed)
+     User-agent: GPTBot
+     Disallow: /
+
+     User-agent: ClaudeBot
+     Disallow: /
+
+     User-agent: Google-Extended
+     Disallow: /
+
+     User-agent: CCBot
+     Disallow: /
+
+     # Allow AI search/answer engines
+     User-agent: PerplexityBot
+     Allow: /
+
+     User-agent: YouBot
+     Allow: /
+
+     Sitemap: https://grandparklaw.com/sitemap.xml
+     ─────────────────────────────────────────────────────
+
+  ✅ SITEMAP HIERARCHY
+     /sitemap.xml (index)
+       ├── /sitemap-pages.xml     (main nav pages)
+       ├── /sitemap-practices.xml (all practice area pages)
+       ├── /sitemap-professionals.xml (attorney bio pages)
+       └── /sitemap-insights.xml  (all articles, blog posts)
+
+     Each URL entry should include:
+       <changefreq>monthly</changefreq>
+       <priority>0.8</priority> (practices / professionals)
+       <priority>0.6</priority> (insights articles)
+       <lastmod>[ISO date of last content change]</lastmod>
+-->
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SECTION 11 — GOOGLE TAG MANAGER / ANALYTICS
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+
+<!-- Google Tag Manager — HEAD (place immediately after opening <head>) -->
+<!-- NOTE: Replace GTM-XXXXXXX with actual GTM container ID -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+
+<!-- Google Search Console verification -->
+<meta name="google-site-verification" content="[VERIFY: paste token from GSC]">
+
+<!-- Bing Webmaster Tools verification -->
+<meta name="msvalidate.01" content="[VERIFY: paste token from Bing WMT]">
+
+<!-- Yandex (low priority; include for completeness) -->
+<!-- <meta name="yandex-verification" content="[token]"> -->
+
+<!-- Structured data testing reminder: -->
+<!-- https://search.google.com/test/rich-results -->
+<!-- https://validator.schema.org/ -->
+
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     GOOGLE TAG MANAGER — NOSCRIPT (place immediately after opening <body>)
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     APPENDIX — SEO KPI TRACKING FRAMEWORK
+     ═══════════════════════════════════════════════════════════════════════════════
+
+     TIER 1 — ORGANIC VISIBILITY (Google Search Console)
+     ┌──────────────────────────────────┬────────────────────────┬────────────────┐
+     │ Metric                           │ Target (12-month)      │ Tool           │
+     ├──────────────────────────────────┼────────────────────────┼────────────────┤
+     │ Organic impressions              │ +200% YoY              │ GSC            │
+     │ Organic clicks                   │ +150% YoY              │ GSC            │
+     │ Average position (branded)       │ Top 1–2                │ GSC            │
+     │ Average position (non-branded)   │ Top 10 priority pages  │ GSC            │
+     │ Rich result appearances          │ FAQ, Local, Review     │ GSC            │
+     │ Core Web Vitals (all pages)      │ All "Good" scores      │ GSC / PageSpeed│
+     └──────────────────────────────────┴────────────────────────┴────────────────┘
+
+     TIER 2 — LOCAL SEO (Google Business Profile)
+     ┌──────────────────────────────────┬────────────────────────┬────────────────┐
+     │ Metric                           │ Target (12-month)      │ Tool           │
+     ├──────────────────────────────────┼────────────────────────┼────────────────┤
+     │ GBP profile views                │ +100% YoY              │ GBP Dashboard  │
+     │ Direction requests               │ +50% YoY               │ GBP Dashboard  │
+     │ Phone calls from GBP             │ +75% YoY               │ GBP Dashboard  │
+     │ Review count (Google)            │ 50+ verified reviews   │ GBP Dashboard  │
+     │ Average star rating              │ ≥ 4.8                  │ GBP Dashboard  │
+     │ "Near me" keyword rankings       │ Local 3-Pack           │ BrightLocal    │
+     └──────────────────────────────────┴────────────────────────┴────────────────┘
+
+     TIER 3 — CONVERSION / BUSINESS OUTCOMES
+     ┌──────────────────────────────────┬────────────────────────┬────────────────┐
+     │ Metric                           │ Target (12-month)      │ Tool           │
+     ├──────────────────────────────────┼────────────────────────┼────────────────┤
+     │ Consultation form submissions    │ Tracked via GTM        │ GA4 / GTM      │
+     │ Phone call conversions           │ Tracked via call track │ CallRail / GTM │
+     │ Organic-to-consultation rate     │ ≥ 3%                   │ GA4            │
+     │ Cost-per-organic-lead            │ vs. paid baseline      │ GA4 / CRM      │
+     │ Live chat initiations (organic)  │ Tracked                │ Chat platform  │
+     └──────────────────────────────────┴────────────────────────┴────────────────┘
+
+     TIER 4 — AI SEARCH VISIBILITY (2026 KPIs — emerging measurement)
+     ┌──────────────────────────────────┬────────────────────────┬────────────────┐
+     │ Metric                           │ Target                 │ Tool           │
+     ├──────────────────────────────────┼────────────────────────┼────────────────┤
+     │ AI Overview appearances (GSC)    │ Track weekly           │ GSC            │
+     │ Perplexity citation count        │ Track monthly          │ Perplexity     │
+     │ ChatGPT Search referral traffic  │ Track via GA4 source   │ GA4            │
+     │ Bing Copilot appearances         │ Track via Bing WMT     │ Bing WMT       │
+     │ Brand mention in AI answers      │ Manual audit monthly   │ Manual / tools │
+     └──────────────────────────────────┴────────────────────────┴────────────────┘
+
+     PRIORITY KEYWORD TARGETS (initial 90-day focus):
+     ─────────────────────────────────────────────────
+     "personal injury attorney Los Angeles"          (high volume, high value)
+     "wrongful termination lawyer Los Angeles"       (high volume, high value)
+     "employment lawyer Los Angeles"                 (high volume)
+     "civil rights attorney California"              (mid volume, high value)
+     "medical malpractice lawyer Los Angeles"        (high volume, high value)
+     "entertainment lawyer Los Angeles"              (mid volume, differentiated)
+     "personal injury attorney Chicago"              (high volume — IL expansion)
+     "Grand Park Law Group"                          (branded — must own #1)
+     "personal injury attorney near me"              (voice/local — rich result)
+     "can I sue my employer for discrimination"      (AI Overview / FAQ target)
+
+     CITATION BUILDING PRIORITY DIRECTORIES:
+     ─────────────────────────────────────────────────
+     1.  Google Business Profile (CRITICAL — verify both offices)
+     2.  Avvo (attorney profiles + firm)
+     3.  Martindale-Hubbell
+     4.  FindLaw
+     5.  Justia
+     6.  Super Lawyers
+     7.  Best Lawyers
+     8.  Yelp (business listing)
+     9.  Apple Maps (claim listing)
+     10. Bing Places (verify both offices)
+     11. State Bar of California (attorney profiles)
+     12. Illinois ARDC (attorney profiles)
+     13. LACBA Member Directory
+     14. Illinois State Bar Association Directory
+     15. Chambers USA (if eligible)
+
+═══════════════════════════════════════════════════════════════════════════════════
+     END OF GRAND PARK LAW GROUP SEO MASTER PACKAGE
+     FILE: gplg-seo-package.html
+     Last updated: March 2026
+     All placeholder values [IN BRACKETS] require verification before deployment.
+     ATTORNEY REVIEW REQUIRED for all FAQ answers and legal content.
+═══════════════════════════════════════════════════════════════════════════════════ -->
+
+</body>
+</html>

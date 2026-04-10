@@ -11,31 +11,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Public Agencies &amp; Government Resources | Grand Park Law Group</title>
-    <meta name="description" content="A curated directory of California courts, state agencies, labor boards, civil rights offices, and federal resources relevant to your legal matters.">
-    <link rel="canonical" href="https://grandparklawgroup.com/public-agencies/">
+    <title>Government Agencies &amp; Regulatory Directory | Grand Park Law Group</title>
+    <meta name="description" content="A curated directory of California state agencies, labor boards, licensing boards, civil rights offices, environmental regulators, and federal agencies relevant to your legal matters.">
+    <link rel="canonical" href="https://grandparklawgroup.com/resources/public-agencies/">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Public Agencies &amp; Government Resources">
-    <meta property="og:description" content="A curated directory of California courts, state agencies, labor boards, civil rights offices, and federal resources.">
-    <meta property="og:url" content="https://grandparklawgroup.com/public-agencies/">
+    <meta property="og:title" content="Government Agencies &amp; Regulatory Directory">
+    <meta property="og:description" content="A curated directory of California state agencies, labor boards, licensing boards, civil rights offices, environmental regulators, and federal agencies.">
+    <meta property="og:url" content="https://grandparklawgroup.com/resources/public-agencies/">
     <meta property="og:site_name" content="Grand Park Law Group">
     <meta property="og:image" content="https://grandparklawgroup.com/assets/images/og-default.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Public Agencies &amp; Government Resources">
-    <meta name="twitter:description" content="A curated directory of California courts, state agencies, labor boards, civil rights offices, and federal resources.">
+    <meta name="twitter:title" content="Government Agencies &amp; Regulatory Directory">
+    <meta name="twitter:description" content="A curated directory of California state agencies, labor boards, licensing boards, civil rights offices, environmental regulators, and federal agencies.">
     <meta name="twitter:image" content="https://grandparklawgroup.com/assets/images/og-default.jpg">
 
-    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg.html">
-    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png.html">
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/css/design-system.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
 
     <script type="application/ld+json">
     {
@@ -131,6 +131,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     max-width: 640px;
     margin: 0 auto;
     line-height: 1.7;
+}
+
+.page-banner-subtitle a {
+    color: var(--accent-gold);
+    text-decoration: none;
+}
+
+.page-banner-subtitle a:hover {
+    text-decoration: underline;
 }
 
 /* ============================================
@@ -230,7 +239,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 .agency-abbr {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 400;
     letter-spacing: 0.08em;
     color: var(--text-muted);
@@ -289,6 +298,84 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 /* ============================================
+   CROSS-LINK CARD
+   ============================================ */
+.crosslink-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--primary-dark);
+    border: 1px solid rgba(201, 169, 98, 0.2);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    margin-bottom: var(--space-lg);
+}
+
+.crosslink-card:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 4px 24px rgba(201, 169, 98, 0.12);
+    transform: translateY(-2px);
+}
+
+.crosslink-card-body {
+    flex: 1;
+}
+
+.crosslink-card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--off-white);
+    margin-bottom: 4px;
+}
+
+.crosslink-card:hover .crosslink-card-title {
+    color: var(--accent-gold);
+}
+
+.crosslink-card-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.crosslink-card-arrow {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--accent-gold);
+    transition: transform 0.3s ease;
+}
+
+.crosslink-card:hover .crosslink-card-arrow {
+    transform: translateX(4px);
+}
+
+/* ============================================
+   CROSS-REFERENCE NOTES
+   ============================================ */
+.category-xref {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+.category-xref a {
+    color: var(--accent-gold-dark);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.category-xref a:hover {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
@@ -298,6 +385,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .category-number {
         font-size: 1.5rem;
+    }
+
+    .crosslink-card {
+        flex-direction: column;
+        text-align: center;
     }
 }
     </style>
@@ -324,18 +416,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 
 <header class="header" id="header" role="banner">
-    <a href="../index.html" class="logo" aria-label="Grand Park Law Group - Home">
+    <a href="../../index.html" class="logo" aria-label="Grand Park Law Group - Home">
         <span class="logo-text">Grand Park Law Group</span>
         <span class="logo-tagline">A Professional Corporation</span>
     </a>
 
     <nav class="nav-desktop" role="navigation" aria-label="Main navigation">
-        <a href="../about/index.html" class="nav-link">About</a>
-        <a href="../practices/index.html" class="nav-link">Practices</a>
-        <a href="../professionals/index.html" class="nav-link">Professionals</a>
-        <a href="../insights/index.html" class="nav-link">Insights</a>
-        <a href="../contact/index.html" class="nav-link">Contact</a>
-        <a href="../portal/index.html" class="nav-link">Members</a>
+        <a href="../../about/index.html" class="nav-link">About</a>
+        <a href="../../practices/index.html" class="nav-link">Practices</a>
+        <a href="../../insights/index.html" class="nav-link">Insights</a>
+        <a href="../../contact/index.html" class="nav-link">Contact</a>
+        <a href="../../portal/index.html" class="nav-link">Members</a>
     </nav>
 
     <div class="header-actions">
@@ -351,12 +442,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="menu-backdrop"></div>
     <div class="menu-panel">
         <nav class="menu-nav" role="navigation">
-            <a href="../about/index.html" class="menu-nav-link">About</a>
-            <a href="../practices/index.html" class="menu-nav-link">Practices</a>
-            <a href="../professionals/index.html" class="menu-nav-link">Professionals</a>
-            <a href="../insights/index.html" class="menu-nav-link">Insights</a>
-            <a href="../contact/index.html" class="menu-nav-link">Contact</a>
-            <a href="../portal/index.html" class="menu-nav-link">Members</a>
+            <a href="../../about/index.html" class="menu-nav-link">About</a>
+            <a href="../../practices/index.html" class="menu-nav-link">Practices</a>
+            <a href="../../insights/index.html" class="menu-nav-link">Insights</a>
+            <a href="../../contact/index.html" class="menu-nav-link">Contact</a>
+            <a href="../../portal/index.html" class="menu-nav-link">Members</a>
         </nav>
 
         <div class="menu-contact">
@@ -394,9 +484,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Page Banner -->
     <div class="page-banner">
         <div class="page-banner-inner">
-            <p class="eyebrow">Government Resources</p>
-            <h1 class="page-banner-title">Public Agencies &amp; <em>Official Resources</em></h1>
-            <p class="page-banner-subtitle">A curated directory of California courts, state agencies, boards, departments, labor commissions, civil rights offices, environmental agencies, and federal resources relevant to your legal matters.</p>
+            <p class="eyebrow">Public Resources</p>
+            <h1 class="page-banner-title">Government Agencies &amp; <em>Regulatory Directory</em></h1>
+            <p class="page-banner-subtitle">A curated directory of California state agencies, boards, departments, labor commissions, licensing authorities, civil rights offices, environmental regulators, and federal agencies relevant to your legal matters. For courts and judiciary resources, see our <a href="../us-courts/index.html">U.S. Courts guide</a>.</p>
         </div>
     </div>
 
@@ -404,78 +494,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="directory-page">
         <div class="directory-section">
 
-            <!-- 01. Courts & Judiciary -->
+            <!-- Courts & Judiciary — see dedicated page -->
+            <a href="../us-courts/index.html" class="crosslink-card reveal">
+                <div class="crosslink-card-body">
+                    <div class="crosslink-card-title">Courts &amp; Judiciary</div>
+                    <div class="crosslink-card-desc">For federal and California court directories, appellate resources, case search tools, and court forms, visit our dedicated U.S. Courts guide.</div>
+                </div>
+                <svg class="crosslink-card-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+
+            <!-- 01. State Executive & Administrative -->
             <div class="directory-category reveal">
                 <div class="category-header">
                     <span class="category-number">01</span>
-                    <h2 class="category-title">Courts &amp; Judiciary</h2>
-                </div>
-                <div class="agency-grid">
-                    <a href="https://www.supremecourt.gov" target="_blank" rel="noopener" class="agency-card">
-                        <div class="agency-card-body">
-                            <div class="agency-name">Supreme Court of the United States</div>
-                            <div class="agency-abbr">supremecourt.gov</div>
-                        </div>
-                        <svg class="agency-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="https://www.ca9.uscourts.gov" target="_blank" rel="noopener" class="agency-card">
-                        <div class="agency-card-body">
-                            <div class="agency-name">Ninth Circuit Court of Appeals</div>
-                            <div class="agency-abbr">ca9.uscourts.gov</div>
-                        </div>
-                        <svg class="agency-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="https://www.cacd.uscourts.gov" target="_blank" rel="noopener" class="agency-card">
-                        <div class="agency-card-body">
-                            <div class="agency-name">U.S. District Court — Central District of California</div>
-                            <div class="agency-abbr">cacd.uscourts.gov</div>
-                        </div>
-                        <svg class="agency-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="https://www.cand.uscourts.gov" target="_blank" rel="noopener" class="agency-card">
-                        <div class="agency-card-body">
-                            <div class="agency-name">U.S. District Court — Northern District of California</div>
-                            <div class="agency-abbr">cand.uscourts.gov</div>
-                        </div>
-                        <svg class="agency-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="https://www.courts.ca.gov" target="_blank" rel="noopener" class="agency-card">
-                        <div class="agency-card-body">
-                            <div class="agency-name">California Supreme Court &amp; Courts of Appeal</div>
-                            <div class="agency-abbr">courts.ca.gov</div>
-                        </div>
-                        <svg class="agency-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="https://www.lacourt.org" target="_blank" rel="noopener" class="agency-card">
-                        <div class="agency-card-body">
-                            <div class="agency-name">Los Angeles Superior Court</div>
-                            <div class="agency-abbr">lacourt.org</div>
-                        </div>
-                        <svg class="agency-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="https://selfhelp.courts.ca.gov" target="_blank" rel="noopener" class="agency-card">
-                        <div class="agency-card-body">
-                            <div class="agency-name">California Courts Self-Help Center</div>
-                            <div class="agency-abbr">selfhelp.courts.ca.gov</div>
-                        </div>
-                        <svg class="agency-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="https://appellatecases.courtinfo.ca.gov" target="_blank" rel="noopener" class="agency-card">
-                        <div class="agency-card-body">
-                            <div class="agency-name">California Appellate Court Case Information</div>
-                            <div class="agency-abbr">appellatecases.courtinfo.ca.gov</div>
-                        </div>
-                        <svg class="agency-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                </div>
-            </div>
-
-            <hr class="directory-divider">
-
-            <!-- 02. State Executive & Administrative -->
-            <div class="directory-category reveal">
-                <div class="category-header">
-                    <span class="category-number">02</span>
                     <h2 class="category-title">State Executive &amp; Administrative</h2>
                 </div>
                 <div class="agency-grid">
@@ -568,11 +599,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <hr class="directory-divider">
 
-            <!-- 03. Employment & Labor -->
+            <!-- 02. Employment & Labor -->
             <div class="directory-category reveal">
                 <div class="category-header">
-                    <span class="category-number">03</span>
+                    <span class="category-number">02</span>
                     <h2 class="category-title">Employment &amp; Labor</h2>
+                    <p class="category-xref">Related: <a href="../../practices/employment-law/index.html">Employment Law Practice</a></p>
                 </div>
                 <div class="agency-grid">
                     <a href="https://www.dir.ca.gov/dlse" target="_blank" rel="noopener" class="agency-card">
@@ -643,11 +675,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <hr class="directory-divider">
 
-            <!-- 04. Civil Rights & Consumer Protection -->
+            <!-- 03. Civil Rights & Consumer Protection -->
             <div class="directory-category reveal">
                 <div class="category-header">
-                    <span class="category-number">04</span>
+                    <span class="category-number">03</span>
                     <h2 class="category-title">Civil Rights &amp; Consumer Protection</h2>
+                    <p class="category-xref">Related: <a href="../../practices/civil-rights/index.html">Civil Rights Practice</a></p>
                 </div>
                 <div class="agency-grid">
                     <a href="https://calcivilrights.ca.gov" target="_blank" rel="noopener" class="agency-card">
@@ -697,11 +730,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <hr class="directory-divider">
 
-            <!-- 05. Health & Public Safety -->
+            <!-- 04. Health & Public Safety -->
             <div class="directory-category reveal">
                 <div class="category-header">
-                    <span class="category-number">05</span>
+                    <span class="category-number">04</span>
                     <h2 class="category-title">Health &amp; Public Safety</h2>
+                    <p class="category-xref">Related: <a href="../../practices/medical-malpractice/index.html">Medical Malpractice Practice</a></p>
                 </div>
                 <div class="agency-grid">
                     <a href="https://www.cdph.ca.gov" target="_blank" rel="noopener" class="agency-card">
@@ -732,13 +766,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         </div>
                         <svg class="agency-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
-                    <a href="https://www.dmv.ca.gov" target="_blank" rel="noopener" class="agency-card">
-                        <div class="agency-card-body">
-                            <div class="agency-name">California Department of Motor Vehicles</div>
-                            <div class="agency-abbr">dmv.ca.gov — DMV</div>
-                        </div>
-                        <svg class="agency-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
                     <a href="https://www.chhs.ca.gov" target="_blank" rel="noopener" class="agency-card">
                         <div class="agency-card-body">
                             <div class="agency-name">California Health &amp; Human Services Agency</div>
@@ -758,11 +785,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <hr class="directory-divider">
 
-            <!-- 06. Professional Licensing Boards -->
+            <!-- 05. Professional Licensing Boards -->
             <div class="directory-category reveal">
                 <div class="category-header">
-                    <span class="category-number">06</span>
+                    <span class="category-number">05</span>
                     <h2 class="category-title">Professional Licensing Boards</h2>
+                    <p class="category-xref">Related: <a href="../../practices/medical-malpractice/index.html">Medical Malpractice</a> &middot; <a href="../../practices/real-property/index.html">Real Property</a></p>
                 </div>
                 <div class="agency-grid">
                     <a href="https://www.calbar.ca.gov" target="_blank" rel="noopener" class="agency-card">
@@ -826,11 +854,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <hr class="directory-divider">
 
-            <!-- 07. Federal Agencies -->
+            <!-- 06. Federal Agencies -->
             <div class="directory-category reveal">
                 <div class="category-header">
-                    <span class="category-number">07</span>
+                    <span class="category-number">06</span>
                     <h2 class="category-title">Federal Agencies</h2>
+                    <p class="category-xref">Related: <a href="../../practices/employment-law/index.html">Employment Law</a> &middot; <a href="../../practices/civil-rights/index.html">Civil Rights</a></p>
                 </div>
                 <div class="agency-grid">
                     <a href="https://www.eeoc.gov" target="_blank" rel="noopener" class="agency-card">
@@ -856,8 +885,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </a>
                     <a href="https://www.justice.gov/crt" target="_blank" rel="noopener" class="agency-card">
                         <div class="agency-card-body">
-                            <div class="agency-name">U.S. DOJ Civil Rights Division</div>
-                            <div class="agency-abbr">justice.gov/crt</div>
+                            <div class="agency-name">U.S. DOJ — Civil Rights Division</div>
+                            <div class="agency-abbr">justice.gov/crt — Federal enforcement of civil rights statutes</div>
                         </div>
                         <svg class="agency-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
@@ -894,10 +923,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <hr class="directory-divider">
 
-            <!-- 08. Los Angeles County & City -->
+            <!-- 07. Los Angeles County & City -->
             <div class="directory-category reveal">
                 <div class="category-header">
-                    <span class="category-number">08</span>
+                    <span class="category-number">07</span>
                     <h2 class="category-title">Los Angeles County &amp; City</h2>
                 </div>
                 <div class="agency-grid">
@@ -948,11 +977,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <hr class="directory-divider">
 
-            <!-- 09. Legal Aid & Self-Help Resources -->
+            <!-- 08. Legal Aid & Self-Help Resources -->
             <div class="directory-category reveal">
                 <div class="category-header">
-                    <span class="category-number">09</span>
+                    <span class="category-number">08</span>
                     <h2 class="category-title">Legal Aid &amp; Self-Help Resources</h2>
+                    <p class="category-xref">See also: <a href="../../pro-bono/index.html">Our Pro Bono Commitment</a></p>
                 </div>
                 <div class="agency-grid">
                     <a href="https://www.lafla.org" target="_blank" rel="noopener" class="agency-card">
@@ -1002,11 +1032,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <hr class="directory-divider">
 
-            <!-- 10. Environment & Natural Resources -->
+            <!-- 09. Environment & Natural Resources -->
             <div class="directory-category reveal">
                 <div class="category-header">
-                    <span class="category-number">10</span>
+                    <span class="category-number">09</span>
                     <h2 class="category-title">Environment &amp; Natural Resources</h2>
+                    <p class="category-xref">Related: <a href="../../practices/real-property/index.html">Real Property Practice</a></p>
                 </div>
                 <div class="agency-grid">
                     <a href="https://calepa.ca.gov" target="_blank" rel="noopener" class="agency-card">
@@ -1105,11 +1136,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <hr class="directory-divider">
 
-            <!-- 11. Infrastructure, Transportation & Safety -->
+            <!-- 10. Infrastructure, Transportation & Safety -->
             <div class="directory-category reveal">
                 <div class="category-header">
-                    <span class="category-number">11</span>
+                    <span class="category-number">10</span>
                     <h2 class="category-title">Infrastructure, Transportation &amp; Safety</h2>
+                    <p class="category-xref">Related: <a href="../../practices/personal-injury/index.html">Personal Injury Practice</a></p>
                 </div>
                 <div class="agency-grid">
                     <a href="https://dot.ca.gov" target="_blank" rel="noopener" class="agency-card">
@@ -1152,10 +1184,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <hr class="directory-divider">
 
-            <!-- 12. State Offices, Commissions & Additional Resources -->
+            <!-- 11. State Offices, Commissions & Additional Resources -->
             <div class="directory-category reveal">
                 <div class="category-header">
-                    <span class="category-number">12</span>
+                    <span class="category-number">11</span>
                     <h2 class="category-title">State Offices, Commissions &amp; Additional Resources</h2>
                 </div>
                 <div class="agency-grid">
@@ -1238,7 +1270,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Disclaimer -->
     <div class="directory-disclaimer">
         <div class="directory-disclaimer-inner">
-            <p>The links provided on this page are for informational purposes only and are maintained as a public resource. Grand Park Law Group does not endorse, operate, or control any linked government or third-party website. Information on external sites may change without notice. For legal advice specific to your situation, please <a href="../contact/index.html">contact our office</a>.</p>
+            <p>The links provided on this page are for informational purposes only and are maintained as a public resource. Grand Park Law Group does not endorse, operate, or control any linked government or third-party website. Information on external sites may change without notice. For legal advice specific to your situation, please <a href="../../contact/index.html">contact our office</a>.</p>
         </div>
     </div>
 
@@ -1248,7 +1280,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="footer-grid">
 
         <div class="footer-brand">
-            <a href="../index.html" class="logo">
+            <a href="../../index.html" class="logo">
                 <span class="logo-text">Grand Park Law Group</span>
                 <span class="logo-tagline">A Professional Corporation</span>
             </a>
@@ -1272,28 +1304,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="footer-column">
             <h4>Practices</h4>
             <ul class="footer-links">
-                <li><a href="../practices/personal-injury/index.html">Personal Injury</a></li>
-                <li><a href="../practices/medical-malpractice/index.html">Medical Malpractice</a></li>
-                <li><a href="../practices/employment-law/index.html">Employment Law</a></li>
-                <li><a href="../practices/civil-rights/index.html">Civil Rights</a></li>
-                <li><a href="../practices/entertainment/index.html">Entertainment &amp; Talent</a></li>
-                <li><a href="../practices/real-property/index.html">Real Property</a></li>
-                <li><a href="../practices/corporate-governance/index.html">Corporate Governance</a></li>
+                <li><a href="../../practices/personal-injury/index.html">Personal Injury</a></li>
+                <li><a href="../../practices/medical-malpractice/index.html">Medical Malpractice</a></li>
+                <li><a href="../../practices/employment-law/index.html">Employment Law</a></li>
+                <li><a href="../../practices/civil-rights/index.html">Civil Rights</a></li>
+                <li><a href="../../practices/entertainment/index.html">Entertainment &amp; Talent</a></li>
+                <li><a href="../../practices/real-property/index.html">Real Property</a></li>
+                <li><a href="../../practices/corporate-governance/index.html">Corporate Governance</a></li>
             </ul>
         </div>
 
         <div class="footer-column">
             <h4>Firm</h4>
             <ul class="footer-links">
-                <li><a href="../about/index.html">About</a></li>
-                <li><a href="../professionals/index.html">Professionals</a></li>
-                <li><a href="../careers/index.html">Careers</a></li>
-                <li><a href="../pro-bono/index.html">Pro Bono</a></li>
-                <li><a href="../diversity/index.html">Diversity &amp; Inclusion</a></li>
-                <li class="footer-resource-label"><a href="../resources/index.html">Resources</a></li>
+                <li><a href="../../about/index.html">About</a></li>
+                <li><a href="../../careers/index.html">Careers</a></li>
+                <li><a href="../../pro-bono/index.html">Pro Bono</a></li>
+                <li><a href="../../diversity/index.html">Diversity &amp; Inclusion</a></li>
+                <li class="footer-resource-label"><a href="../../resources/index.html">Resources</a></li>
                 <li class="footer-resource-item"><a href="index.html">Public Agencies</a></li>
-                <li class="footer-resource-item"><a href="../resources/us-courts/index.html">US Courts</a></li>
-                <li><a href="../portal/index.html">Members</a></li>
+                <li class="footer-resource-item"><a href="../../resources/us-courts/index.html">US Courts</a></li>
+                <li><a href="../../portal/index.html">Members</a></li>
             </ul>
         </div>
 
@@ -1317,9 +1348,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="footer-bottom">
         <p class="footer-copyright">© <span data-year>2026</span> Grand Park Law Group, A.P.C. All rights reserved.</p>
         <div class="footer-legal">
-            <a href="../legal/privacy/index.html">Privacy Policy</a>
-            <a href="../legal/terms/index.html">Terms of Use</a>
-            <a href="../legal/attorney-advertising/index.html">Attorney Advertising</a>
+            <a href="../../legal/privacy/index.html">Privacy Policy</a>
+            <a href="../../legal/terms/index.html">Terms of Use</a>
+            <a href="../../legal/attorney-advertising/index.html">Attorney Advertising</a>
         </div>
     </div>
 </footer>
@@ -1330,7 +1361,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </svg>
 </button>
 
-<script src="../assets/js/main.js"></script>
+<script src="../../assets/js/main.js"></script>
 
 <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "97af4cf6b3e74dfabd6ea83ce66c10f0"}'></script><!-- Cloudflare Pages Analytics -->
 </body>
